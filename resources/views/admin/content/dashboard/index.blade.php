@@ -176,7 +176,7 @@
         <!-- ====== Table One End -->
 
         <!-- ====== Chat Card Start -->
-        <div
+        {{-- <div
             class="col-span-12 rounded-sm border border-stroke bg-white py-6 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
             <h4 class="mb-6 px-7.5 text-xl font-bold text-black dark:text-white">
                 Chats
@@ -298,7 +298,7 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div> --}}
         <!-- ====== Chat Card End -->
     </div>
 @endsection
