@@ -3,7 +3,7 @@
         <div class="nano-content">
             <ul>
                 <div class="logo"><a href="index.html">
-                        <!-- <img src="assets/images/logo.png" alt="" /> --><span>Focus</span></a></div>
+                        <!-- <img src="admin/images/logo.png" alt="" /> --><span>Focus</span></a></div>
                 <li class="label">Main</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span
                             class="badge badge-primary">2</span> <span
@@ -90,8 +90,8 @@
                         <li><a href="vector-map.html">Vector Map</a></li>
                     </ul>
                 </li>
-                <li class="label">Form</li>
-                <li><a href="form-basic.html"><i class="ti-view-list-alt"></i> Basic Form </a></li>
+                <li class="label">Settings</li>
+                <li><a href="{{ route('settings.index') }}"><i class="ti-view-list-alt"></i> Settings </a></li>
                 <li class="label">Extra</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-files"></i> Invoice <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -109,7 +109,17 @@
                     </ul>
                 </li>
                 <li><a href="../documentation/index.html"><i class="ti-file"></i> Documentation</a></li>
-                <li><a><i class="ti-close"></i> Logout</a></li>
+                <li><a><i class="ti-close"></i>logout
+                        {{--                        <form method="POST" action="{{ route('logout') }}">--}}
+                        {{--                            @csrf--}}
+
+                        {{--                            <x-responsive-nav-link :href="route('logout')"--}}
+                        {{--                                                   onclick="event.preventDefault();--}}
+                        {{--                                                            this.closest('form').submit();">--}}
+                        {{--                                {{ __('Log Out') }}--}}
+                        {{--                            </x-responsive-nav-link>--}}
+                        {{--                        </form>--}}
+                    </a></li>
             </ul>
         </div>
     </div>

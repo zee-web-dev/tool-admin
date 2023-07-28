@@ -22,19 +22,19 @@
                                         <li>
                                             <a href="#">
                                                 <img class="pull-left m-r-10 avatar-img"
-                                                     src="assets/images/avatar/3.jpg" alt="" />
+                                                     src="assets/images/avatar/3.jpg" alt=""/>
                                                 <div class="notification-content">
                                                     <small class="notification-timestamp pull-right">02:34
                                                         PM</small>
                                                     <div class="notification-heading">Mr. John</div>
-                                                    <div class="notification-text">5 members joined today </div>
+                                                    <div class="notification-text">5 members joined today</div>
                                                 </div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="pull-left m-r-10 avatar-img"
-                                                     src="assets/images/avatar/3.jpg" alt="" />
+                                                     src="assets/images/avatar/3.jpg" alt=""/>
                                                 <div class="notification-content">
                                                     <small class="notification-timestamp pull-right">02:34
                                                         PM</small>
@@ -46,26 +46,28 @@
                                         <li>
                                             <a href="#">
                                                 <img class="pull-left m-r-10 avatar-img"
-                                                     src="assets/images/avatar/3.jpg" alt="" />
+                                                     src="assets/images/avatar/3.jpg" alt=""/>
                                                 <div class="notification-content">
                                                     <small class="notification-timestamp pull-right">02:34
                                                         PM</small>
                                                     <div class="notification-heading">Tasnim</div>
                                                     <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
+                                                        ...
+                                                    </div>
                                                 </div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="pull-left m-r-10 avatar-img"
-                                                     src="assets/images/avatar/3.jpg" alt="" />
+                                                     src="assets/images/avatar/3.jpg" alt=""/>
                                                 <div class="notification-content">
                                                     <small class="notification-timestamp pull-right">02:34
                                                         PM</small>
                                                     <div class="notification-heading">Mr. John</div>
                                                     <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
+                                                        ...
+                                                    </div>
                                                 </div>
                                             </a>
                                         </li>
@@ -92,52 +94,56 @@
                                         <li class="notification-unread">
                                             <a href="#">
                                                 <img class="pull-left m-r-10 avatar-img"
-                                                     src="assets/images/avatar/1.jpg" alt="" />
+                                                     src="assets/images/avatar/1.jpg" alt=""/>
                                                 <div class="notification-content">
                                                     <small class="notification-timestamp pull-right">02:34
                                                         PM</small>
                                                     <div class="notification-heading">Michael Qin</div>
                                                     <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
+                                                        ...
+                                                    </div>
                                                 </div>
                                             </a>
                                         </li>
                                         <li class="notification-unread">
                                             <a href="#">
                                                 <img class="pull-left m-r-10 avatar-img"
-                                                     src="assets/images/avatar/2.jpg" alt="" />
+                                                     src="assets/images/avatar/2.jpg" alt=""/>
                                                 <div class="notification-content">
                                                     <small class="notification-timestamp pull-right">02:34
                                                         PM</small>
                                                     <div class="notification-heading">Mr. John</div>
                                                     <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
+                                                        ...
+                                                    </div>
                                                 </div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="pull-left m-r-10 avatar-img"
-                                                     src="assets/images/avatar/3.jpg" alt="" />
+                                                     src="assets/images/avatar/3.jpg" alt=""/>
                                                 <div class="notification-content">
                                                     <small class="notification-timestamp pull-right">02:34
                                                         PM</small>
                                                     <div class="notification-heading">Michael Qin</div>
                                                     <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
+                                                        ...
+                                                    </div>
                                                 </div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
                                                 <img class="pull-left m-r-10 avatar-img"
-                                                     src="assets/images/avatar/2.jpg" alt="" />
+                                                     src="assets/images/avatar/2.jpg" alt=""/>
                                                 <div class="notification-content">
                                                     <small class="notification-timestamp pull-right">02:34
                                                         PM</small>
                                                     <div class="notification-heading">Mr. John</div>
                                                     <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                        ...</div>
+                                                        ...
+                                                    </div>
                                                 </div>
                                             </a>
                                         </li>
@@ -188,10 +194,16 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <i class="ti-power-off"></i>
-                                                <span>Logout</span>
-                                            </a>
+
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+
+                                                <x-responsive-nav-link :href="route('logout')"
+                                                                       onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                                    {{ __('Log Out') }}
+                                                </x-responsive-nav-link>
+                                            </form>
                                         </li>
                                     </ul>
                                 </div>

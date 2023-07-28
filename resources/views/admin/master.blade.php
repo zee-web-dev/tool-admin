@@ -14,8 +14,8 @@
 <div class="content-wrap">
     @yield('content')
 
-    @include('admin.includes.footer')
 </div>
+{{--@include('admin.includes.footer')--}}
 
 @include('admin.includes.script')
 </body>
