@@ -1,13 +1,70 @@
+@php
+    $url = url()->full();
+@endphp
 <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
     <div class="nano">
         <div class="nano-content">
             <ul>
                 <div class="logo"><a href="index.html">
-                        <!-- <img src="admin/images/logo.png" alt="" /> --><span>Focus</span></a></div>
-                <li class="label">Main</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span
-                            class="badge badge-primary">2</span> <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <!-- <img src="assets/images/logo.png" alt="" /> -->
+                        <span>Focus</span></a>
+                </div>
+
+                {{-- Foreach menu item starts --}}
+                @if (isset($menuData))
+                    @foreach ($menuData->menu as $menu)
+                        @if (isset($menu->navheader))
+                            <li class="label">
+                                {{ $menu->navheader }}
+                            </li>
+                        @else
+                            {{-- Add Custom Class with nav-item --}}
+                            @php
+                                $custom_classes = '';
+                                if (isset($menu->classlist)) {
+                                    $custom_classes = $menu->classlist;
+                                }
+                            @endphp
+                            <li
+                                class="{{ Route::currentRouteName() === $menu->slug ? 'active' : '' }} {{ $custom_classes }}">
+                                <a href="{{ isset($menu->url) ? url($menu->url) : 'javascript:void(0)' }}"
+                                    class="{{ isset($menu->submenu) ? 'sidebar-sub-toggle' : '' }}"
+                                    target="{{ isset($menu->newTab) ? '_blank' : '_self' }}">
+                                    <i class="ti-{{ $menu->icon }}"></i>
+                                    {{ $menu->name }}
+                                    @if (isset($menu->badge))
+                                        <span
+                                            class="{{ isset($menu->badgeClass) && !empty($menu->badgeClass)   ? $menu->badgeClass : 'badge badge-primary' }} ">
+                                            {{ $menu->badge }}</span>
+                                    @endif
+                                    @if (isset($menu->submenu))
+                                        <span class="sidebar-collapse-icon ti-angle-down"></span>
+                                    @endif
+
+                                </a>
+                                @if (isset($menu->submenu))
+                                    <ul>
+                                        @foreach ($menu->submenu as $submenu)
+                                            <li>
+                                                <a href="{{ $submenu->url }}"
+                                                    class="{{ Route::currentRouteName() === $menu->slug ? 'active' : '' }}">{{ $submenu->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li>
+                        @endif
+                    @endforeach
+                @endif
+                {{-- Foreach menu item ends --}}
+
+                {{-- <li class="label">Main</li>
+                <li>
+                    <a class="sidebar-sub-toggle">
+                        <i class="ti-home"></i> Dashboard
+                        <span class="badge badge-primary">2</span>
+                        <span class="sidebar-collapse-icon ti-angle-down"></span>
+                    </a>
                     <ul>
                         <li><a href="index.html">Dashboard 1</a></li>
                         <li><a href="index1.html">Dashboard 2</a></li>
@@ -90,8 +147,8 @@
                         <li><a href="vector-map.html">Vector Map</a></li>
                     </ul>
                 </li>
-                <li class="label">Settings</li>
-                <li><a href="{{ route('settings.index') }}"><i class="ti-view-list-alt"></i> Settings </a></li>
+                <li class="label">Form</li>
+                <li><a href="form-basic.html"><i class="ti-view-list-alt"></i> Basic Form </a></li>
                 <li class="label">Extra</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-files"></i> Invoice <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -109,17 +166,7 @@
                     </ul>
                 </li>
                 <li><a href="../documentation/index.html"><i class="ti-file"></i> Documentation</a></li>
-                <li><a><i class="ti-close"></i>logout
-                        {{--                        <form method="POST" action="{{ route('logout') }}">--}}
-                        {{--                            @csrf--}}
-
-                        {{--                            <x-responsive-nav-link :href="route('logout')"--}}
-                        {{--                                                   onclick="event.preventDefault();--}}
-                        {{--                                                            this.closest('form').submit();">--}}
-                        {{--                                {{ __('Log Out') }}--}}
-                        {{--                            </x-responsive-nav-link>--}}
-                        {{--                        </form>--}}
-                    </a></li>
+                <li><a><i class="ti-close"></i> Logout</a></li> --}}
             </ul>
         </div>
     </div>

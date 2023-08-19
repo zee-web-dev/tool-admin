@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-{{--head--}}
+{{-- head --}}
 @include('admin.includes.head')
 
 <body>
-{{--sidebar--}}
-@include('admin.includes.sidebar')
-<!-- /# sidebar -->
-{{--topbar--}}
-@include('admin.includes.topbar')
-{{--endtopbar--}}
 
-<div class="content-wrap">
-    @yield('content')
+    <!-- sidebar -->
+    @include('admin.includes.sidebar')
+    <!-- /# sidebar -->
 
-</div>
-{{--@include('admin.includes.footer')--}}
+    <!-- navbar -->
+    @include('admin.includes.navbar')
+    <!-- /navbar -->
 
-@include('admin.includes.script')
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+
+                <!-- breadcrumb -->
+                @include('admin.includes.breadcrumb')
+                <!-- /breadcrumb -->
+
+                <section id="main-content">
+
+                    @yield('content')
+
+
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!-- footer -->
+    @include('admin.includes.footer')
+    <!-- /footer -->
+
+    <!-- scripts -->
+    @include('admin.includes.script')
+    <!-- /scripts -->
 </body>
 
 </html>

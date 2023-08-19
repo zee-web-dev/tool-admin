@@ -1,0 +1,128 @@
+{
+    "menu": [
+        {
+            "navheader": "Main",
+            "slug": ""
+        },
+        {
+            "name": "Dashboards",
+            "icon": "home",
+            "slug": "dashboard"
+        },
+        {
+            "name": "Clients",
+            "icon": "panel",
+            "slug": ""
+        },
+        {
+            "navheader": "Apps & Pages",
+            "slug": ""
+        },
+        {
+            "name": "Services",
+            "icon": "check-box",
+            "slug": "",
+            "submenu": [
+                {
+                    "url": "dashboard/analytics",
+                    "name": "Add",
+                    "slug": "dashboard-analytics"
+                },
+                {
+                    "url": "/",
+                    "name": "List",
+                    "slug": "dashboard-ecommerce"
+                }
+            ]
+        },
+        {
+            "name": "Projects",
+            "icon": "briefcase",
+            "slug": "",
+            "submenu": [
+                {
+                    "url": "dashboard/analytics",
+                    "name": "Add",
+                    "slug": "dashboard-analytics"
+                },
+                {
+                    "url": "/",
+                    "name": "List",
+                    "slug": "dashboard-ecommerce"
+                }
+            ]
+        },
+        {
+            "name": "Resume",
+            "icon": "id-badge",
+            "slug": "",
+            "submenu": [
+                {
+                    "url": "dashboard/analytics",
+                    "name": "Education",
+                    "slug": "dashboard-analytics"
+                },
+                {
+                    "url": "/",
+                    "name": "Experience",
+                    "slug": "dashboard-ecommerce"
+                },
+                {
+                    "url": "/",
+                    "name": "Skills",
+                    "slug": "dashboard-ecommerce"
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "icon": "user",
+            "slug": "",
+            "submenu": [
+                {
+                    "url": "dashboard/analytics",
+                    "name": "List",
+                    "slug": "dashboard-analytics"
+                },
+                {
+                    "url": "/",
+                    "name": "Add",
+                    "slug": "dashboard-ecommerce"
+                }
+            ]
+        },
+        {
+            "name": "Roles & Permission",
+            "icon": "lock",
+            "slug": "",
+            "submenu": [
+                {
+                    "url": "dashboard/analytics",
+                    "name": "Roles",
+                    "slug": "dashboard-analytics"
+                },
+                {
+                    "url": "/",
+                    "name": "Permission",
+                    "slug": "dashboard-ecommerce"
+                }
+            ]
+        },
+        {
+            "navheader": "Settings",
+            "slug": ""
+        },
+        {
+            "url": "app/email",
+            "name": "App Settings",
+            "icon": "settings",
+            "slug": "app-email"
+        },
+        {
+            "url": "app/email",
+            "name": "Web Settings",
+            "icon": "world",
+            "slug": "app-email"
+        }
+    ]
+}
