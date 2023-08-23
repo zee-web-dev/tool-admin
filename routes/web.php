@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,23 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
+// Route::get('/dashboard', function () {
+//     return view('admin.content.dashboard.index');
+// })->name('dashboard');
 
 
-Route::middleware('auth')->prefix('admin')->group(function () {
-//dashboard
-    Route::get('/dashboard', function () {
-        return view('admin.content.dashboard.index');
-    })->name('dashboard');
+// Route::middleware('auth')->prefix('admin')->group(function () {
+// // dashboard
+//     Route::get('/dashboard', function () {
+//         return view('admin.content.dashboard.index');
+//     })->name('dashboard');
 
-//    settings
-    // Route::resource('settings',\App\Http\Controllers\SettingsController::class);
+// //    settings
+//     Route::resource('settings',\App\Http\Controllers\SettingsController::class);
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-require __DIR__.'/auth.php';
+// });
+
+// require __DIR__.'/auth.php';

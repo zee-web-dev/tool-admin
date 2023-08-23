@@ -1,29 +1,25 @@
-<!-- jquery vendor -->
-<script src="{{ asset('admin/js/lib/jquery.min.js') }}"></script>
-<script src="{{ asset('admin/js/lib/jquery.nanoscroller.min.js') }}"></script>
-<!-- nano scroller -->
-<script src="{{ asset('admin/js/lib/menubar/sidebar.js') }}"></script>
-<script src="{{ asset('admin/js/lib/preloader/pace.min.js') }}"></script>
-<!-- sidebar -->
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="{{ asset('admin/vendor/libs/jquery/jquery.js') }}"></script>
+<script src="{{ asset('admin/vendor/libs/popper/popper.js') }}"></script>
+<script src="{{ asset('admin/vendor/js/bootstrap.js') }}"></script>
+<script src="{{ asset('admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+<script src="{{ asset('admin/vendor/libs/node-waves/node-waves.js') }}"></script>
 
-<script src="{{ asset('admin/js/lib/bootstrap.min.js') }}"></script>
-<script src="{{ asset('admin/js/scripts.js') }}"></script>
-<!-- bootstrap -->
+<script src="{{ asset('admin/vendor/libs/hammer/hammer.js') }}"></script>
+<script src="{{ asset('admin/vendor/libs/i18n/i18n.js') }}"></script>
+<script src="{{ asset('admin/vendor/libs/typeahead-js/typeahead.js') }}"></script>
 
-{{-- <script src="{{asset('admin/js/lib/calendar-2/moment.latest.min.js')}}"></script>
-<script src="{{asset('admin/js/lib/calendar-2/pignose.calendar.min.js')}}"></script>
-<script src="{{asset('admin/js/lib/calendar-2/pignose.init.js')}}"></script> --}}
+<script src="{{ asset('admin/vendor/js/menu.js') }}"></script>
+<!-- endbuild -->
 
+<!-- Vendors JS -->
+<script src="{{ asset('admin/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+<script src="{{ asset('admin/vendor/libs/swiper/swiper.js') }}"></script>
+<script src="{{ asset('admin/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
 
-{{-- <script src="{{asset('admin/js/lib/weather/jquery.simpleWeather.min.js')}}"></script>
-<script src="{{asset('admin/js/lib/weather/weather-init.js')}}"></script>
-<script src="{{asset('admin/js/lib/circle-progress/circle-progress.min.js')}}"></script>
-<script src="{{asset('admin/js/lib/circle-progress/circle-progress-init.js')}}"></script>
-<script src="{{asset('admin/js/lib/chartist/chartist.min.js')}}"></script>
-<script src="{{asset('admin/js/lib/sparklinechart/jquery.sparkline.min.js')}}"></script>
-<script src="{{asset('admin/js/lib/sparklinechart/sparkline.init.js')}}"></script>
-<script src="{{asset('admin/js/lib/owl-carousel/owl.carousel.min.js')}}"></script>
-<script src="{{asset('admin/js/lib/owl-carousel/owl.carousel-init.js')}}"></script> --}}
+<!-- Main JS -->
+<script src="{{ asset('admin/js/main.js') }}"></script>
 
-<!-- scripit init-->
-<script src="{{ asset('admin/js/dashboard2.js') }}"></script>
+<!-- Page JS -->
+{{-- <script src="{{asset('admin/js/dashboards-analytics.js">')}}</script> --}}

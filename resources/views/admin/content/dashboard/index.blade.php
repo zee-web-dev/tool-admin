@@ -1,5 +1,5 @@
-@extends('admin.master')
-@section('content')
+<x-master-layout>
+
     <div class="row">
         <div class="col-lg-3">
             <div class="card">
@@ -49,4 +49,5 @@
             </div>
         </div>
     </div>
-@endsection
+    
+</x-master-layout>

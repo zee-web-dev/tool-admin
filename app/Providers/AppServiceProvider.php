@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,12 +21,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // get all data from menu.json file
-        $menuJson = file_get_contents(base_path('resources/data/menu.json'));
-        $menuData = json_decode($menuJson);
+        if (str_contains(Request::path(), 'admin')) {
+            // get all data from menu.json file
+            $menuJson = file_get_contents(base_path('resources/data/menu.json'));
+            $menuData = json_decode($menuJson);
 
-
-        // Share all menuData to all the views
-        View::share('menuData', $menuData);
+            // Share all menuData to all the views
+            View::share('menuData', $menuData);
+        }
     }
 }

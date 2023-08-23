@@ -1,173 +1,87 @@
 @php
     $url = url()->full();
 @endphp
-<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
-    <div class="nano">
-        <div class="nano-content">
-            <ul>
-                <div class="logo"><a href="index.html">
-                        <!-- <img src="assets/images/logo.png" alt="" /> -->
-                        <span>Focus</span></a>
-                </div>
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="app-brand demo">
+        <a href="index.html" class="app-brand-link">
+            <span class="app-brand-logo demo">
+                <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z"
+                        fill="#7367F0" />
+                    <path opacity="0.06" fill-rule="evenodd" clip-rule="evenodd"
+                        d="M7.69824 16.4364L12.5199 3.23696L16.5541 7.25596L7.69824 16.4364Z" fill="#161616" />
+                    <path opacity="0.06" fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.07751 15.9175L13.9419 4.63989L16.5849 7.28475L8.07751 15.9175Z" fill="#161616" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z"
+                        fill="#7367F0" />
+                </svg>
+            </span>
+            <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+        </a>
 
-                {{-- Foreach menu item starts --}}
-                @if (isset($menuData))
-                    @foreach ($menuData->menu as $menu)
-                        @if (isset($menu->navheader))
-                            <li class="label">
-                                {{ $menu->navheader }}
-                            </li>
-                        @else
-                            {{-- Add Custom Class with nav-item --}}
-                            @php
-                                $custom_classes = '';
-                                if (isset($menu->classlist)) {
-                                    $custom_classes = $menu->classlist;
-                                }
-                            @endphp
-                            <li
-                                class="{{ Route::currentRouteName() === $menu->slug ? 'active' : '' }} {{ $custom_classes }}">
-                                <a href="{{ isset($menu->url) ? url($menu->url) : 'javascript:void(0)' }}"
-                                    class="{{ isset($menu->submenu) ? 'sidebar-sub-toggle' : '' }}"
-                                    target="{{ isset($menu->newTab) ? '_blank' : '_self' }}">
-                                    <i class="ti-{{ $menu->icon }}"></i>
-                                    {{ $menu->name }}
-                                    @if (isset($menu->badge))
-                                        <span
-                                            class="{{ isset($menu->badgeClass) && !empty($menu->badgeClass)   ? $menu->badgeClass : 'badge badge-primary' }} ">
-                                            {{ $menu->badge }}</span>
-                                    @endif
-                                    @if (isset($menu->submenu))
-                                        <span class="sidebar-collapse-icon ti-angle-down"></span>
-                                    @endif
-
-                                </a>
-                                @if (isset($menu->submenu))
-                                    <ul>
-                                        @foreach ($menu->submenu as $submenu)
-                                            <li>
-                                                <a href="{{ $submenu->url }}"
-                                                    class="{{ Route::currentRouteName() === $menu->slug ? 'active' : '' }}">{{ $submenu->name }}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </li>
-                        @endif
-                    @endforeach
-                @endif
-                {{-- Foreach menu item ends --}}
-
-                {{-- <li class="label">Main</li>
-                <li>
-                    <a class="sidebar-sub-toggle">
-                        <i class="ti-home"></i> Dashboard
-                        <span class="badge badge-primary">2</span>
-                        <span class="sidebar-collapse-icon ti-angle-down"></span>
-                    </a>
-                    <ul>
-                        <li><a href="index.html">Dashboard 1</a></li>
-                        <li><a href="index1.html">Dashboard 2</a></li>
-                    </ul>
-                </li>
-
-                <li class="label">Apps</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Charts <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="chart-flot.html">Flot</a></li>
-                        <li><a href="chart-morris.html">Morris</a></li>
-                        <li><a href="chartjs.html">Chartjs</a></li>
-                        <li><a href="chartist.html">Chartist</a></li>
-                        <li><a href="chart-peity.html">Peity</a></li>
-                        <li><a href="chart-sparkline.html">Sparkle</a></li>
-                        <li><a href="chart-knob.html">Knob</a></li>
-                    </ul>
-                </li>
-                <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
-                <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
-                <li><a href="app-profile.html"><i class="ti-user"></i> Profile</a></li>
-                <li><a href="app-widget-card.html"><i class="ti-layout-grid2-alt"></i> Widget</a></li>
-                <li class="label">Features</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-layout"></i> UI Elements <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="ui-typography.html">Typography</a></li>
-                        <li><a href="ui-alerts.html">Alerts</a></li>
-
-                        <li><a href="ui-button.html">Button</a></li>
-                        <li><a href="ui-dropdown.html">Dropdown</a></li>
-
-                        <li><a href="ui-list-group.html">List Group</a></li>
-
-                        <li><a href="ui-progressbar.html">Progressbar</a></li>
-                        <li><a href="ui-tab.html">Tab</a></li>
-
-                    </ul>
-                </li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-panel"></i> Components <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="uc-calendar.html">Calendar</a></li>
-                        <li><a href="uc-carousel.html">Carousel</a></li>
-                        <li><a href="uc-weather.html">Weather</a></li>
-                        <li><a href="uc-datamap.html">Datamap</a></li>
-                        <li><a href="uc-todo-list.html">To do</a></li>
-                        <li><a href="uc-scrollable.html">Scrollable</a></li>
-                        <li><a href="uc-sweetalert.html">Sweet Alert</a></li>
-                        <li><a href="uc-toastr.html">Toastr</a></li>
-                        <li><a href="uc-range-slider-basic.html">Basic Range Slider</a></li>
-                        <li><a href="uc-range-slider-advance.html">Advance Range Slider</a></li>
-                        <li><a href="uc-nestable.html">Nestable</a></li>
-
-                        <li><a href="uc-rating-bar-rating.html">Bar Rating</a></li>
-                        <li><a href="uc-rating-jRate.html">jRate</a></li>
-                    </ul>
-                </li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i> Table <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="table-basic.html">Basic</a></li>
-
-                        <li><a href="table-export.html">Datatable Export</a></li>
-                        <li><a href="table-row-select.html">Datatable Row Select</a></li>
-                        <li><a href="table-jsgrid.html">Editable </a></li>
-                    </ul>
-                </li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-heart"></i> Icons <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="font-themify.html">Themify</a></li>
-                    </ul>
-                </li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-map"></i> Maps <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="gmaps.html">Basic</a></li>
-                        <li><a href="vector-map.html">Vector Map</a></li>
-                    </ul>
-                </li>
-                <li class="label">Form</li>
-                <li><a href="form-basic.html"><i class="ti-view-list-alt"></i> Basic Form </a></li>
-                <li class="label">Extra</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-files"></i> Invoice <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="invoice.html">Basic</a></li>
-                        <li><a href="invoice-editable.html">Editable</a></li>
-                    </ul>
-                </li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> Pages <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="page-login.html">Login</a></li>
-                        <li><a href="page-register.html">Register</a></li>
-                        <li><a href="page-reset-password.html">Forgot password</a></li>
-                    </ul>
-                </li>
-                <li><a href="../documentation/index.html"><i class="ti-file"></i> Documentation</a></li>
-                <li><a><i class="ti-close"></i> Logout</a></li> --}}
-            </ul>
-        </div>
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
+            <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
+            <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
+        </a>
     </div>
-</div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+        @foreach ($menuData->menu as $menu)
+            {{-- adding active and open class if child is active --}}
+
+            {{-- menu headers --}}
+            @if (isset($menu->menuHeader))
+                <li class="menu-header small text-uppercase">
+                    <span class="menu-header-text">{{ $menu->menuHeader }}</span>
+                </li>
+            @else
+                {{-- active menu method --}}
+                @php
+                    $activeClass = null;
+                    $currentRouteName = Route::currentRouteName();
+
+                    if (str_contains($currentRouteName, $menu->slug) and strpos($currentRouteName, $menu->slug) === 0) {
+                        $activeClass = 'active';
+                    } elseif (isset($menu->submenu)) {
+                        if (gettype($menu->slug) === 'array') {
+                            foreach ($menu->slug as $slug) {
+                                if (str_contains($currentRouteName, $slug) and strpos($currentRouteName, $slug) === 0) {
+                                    $activeClass = 'active open';
+                                }
+                            }
+                        } else {
+                            if (str_contains($currentRouteName, $menu->slug) and strpos($currentRouteName, $menu->slug) === 0) {
+                                $activeClass = 'active open';
+                            }
+                        }
+                    }
+                @endphp
+
+                {{-- main menu --}}
+                <li class="menu-item {{ $activeClass }}">
+                    <a href="{{ isset($menu->url) ? url('admin/' . $menu->url) : 'javascript:void(0);' }}"
+                        class="{{ isset($menu->submenu) ? 'menu-link menu-toggle' : 'menu-link' }}"
+                        @if (isset($menu->target) and !empty($menu->target)) target="_blank" @endif>
+                        @isset($menu->icon)
+                            <i class="{{ $menu->icon }}"></i>
+                        @endisset
+                        <div>{{ isset($menu->name) ? __($menu->name) : '' }}</div>
+                        @isset($menu->badge)
+                            <div class="badge bg-label-{{ $menu->badge[0] }} rounded-pill ms-auto">{{ $menu->badge[1] }}
+                            </div>
+                        @endisset
+                    </a>
+
+                    {{-- submenu --}}
+                    @isset($menu->submenu)
+                        @include('admin.includes.submenu', ['menu' => $menu->submenu])
+                    @endisset
+                </li>
+            @endif
+        @endforeach
+    </ul>
+</aside>

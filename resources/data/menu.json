@@ -1,128 +1,124 @@
 {
     "menu": [
         {
-            "navheader": "Main",
-            "slug": ""
-        },
-        {
+            "url": "dashboard",
             "name": "Dashboards",
-            "icon": "home",
+            "icon": "menu-icon tf-icons ti ti-smart-home",
             "slug": "dashboard"
         },
         {
+            "url": "clients",
             "name": "Clients",
-            "icon": "panel",
-            "slug": ""
+            "icon": "menu-icon tf-icons ti ti-users",
+            "slug": "clients"
         },
         {
-            "navheader": "Apps & Pages",
-            "slug": ""
+            "menuHeader": "Apps & Pages"
         },
         {
             "name": "Services",
-            "icon": "check-box",
-            "slug": "",
+            "icon": "menu-icon tf-icons ti ti-checkbox",
+            "slug": "services",
             "submenu": [
                 {
-                    "url": "dashboard/analytics",
+                    "url": "",
                     "name": "Add",
-                    "slug": "dashboard-analytics"
+                    "slug": ""
                 },
                 {
-                    "url": "/",
+                    "url": "",
                     "name": "List",
-                    "slug": "dashboard-ecommerce"
+                    "slug": ""
                 }
             ]
         },
         {
             "name": "Projects",
-            "icon": "briefcase",
-            "slug": "",
+            "icon": "menu-icon tf-icons ti ti-briefcase",
+            "slug": "projects",
             "submenu": [
                 {
-                    "url": "dashboard/analytics",
+                    "url": "",
                     "name": "Add",
-                    "slug": "dashboard-analytics"
+                    "slug": ""
                 },
                 {
-                    "url": "/",
+                    "url": "",
                     "name": "List",
-                    "slug": "dashboard-ecommerce"
+                    "slug": ""
                 }
             ]
         },
         {
             "name": "Resume",
-            "icon": "id-badge",
-            "slug": "",
+            "icon": "menu-icon tf-icons ti ti-clipboard-list",
+            "slug": "resume",
             "submenu": [
                 {
-                    "url": "dashboard/analytics",
+                    "url": "",
                     "name": "Education",
-                    "slug": "dashboard-analytics"
+                    "slug": ""
                 },
                 {
-                    "url": "/",
+                    "url": "",
                     "name": "Experience",
-                    "slug": "dashboard-ecommerce"
+                    "slug": ""
                 },
                 {
-                    "url": "/",
+                    "url": "",
                     "name": "Skills",
-                    "slug": "dashboard-ecommerce"
+                    "slug": ""
                 }
             ]
         },
         {
             "name": "Users",
-            "icon": "user",
-            "slug": "",
+            "icon": "menu-icon tf-icons ti ti-user",
+            "slug": "users",
             "submenu": [
                 {
-                    "url": "dashboard/analytics",
+                    "url": "",
                     "name": "List",
-                    "slug": "dashboard-analytics"
+                    "slug": ""
                 },
                 {
-                    "url": "/",
+                    "url": "",
                     "name": "Add",
-                    "slug": "dashboard-ecommerce"
+                    "slug": ""
                 }
             ]
         },
         {
             "name": "Roles & Permission",
-            "icon": "lock",
-            "slug": "",
+            "icon": "menu-icon tf-icons ti ti-shield",
+            "slug": "roles-permissions",
             "submenu": [
                 {
-                    "url": "dashboard/analytics",
+                    "url": "",
                     "name": "Roles",
-                    "slug": "dashboard-analytics"
+                    "slug": ""
                 },
                 {
-                    "url": "/",
+                    "url": "",
                     "name": "Permission",
-                    "slug": "dashboard-ecommerce"
+                    "slug": ""
                 }
             ]
         },
         {
-            "navheader": "Settings",
-            "slug": ""
+            "menuHeader": "Settings"
         },
         {
-            "url": "app/email",
+            "url": "app-settings",
             "name": "App Settings",
-            "icon": "settings",
-            "slug": "app-email"
+            "icon": "menu-icon tf-icons ti ti-settings",
+            "slug": "app-settings"
         },
         {
-            "url": "app/email",
+            "url": "web-settings",
             "name": "Web Settings",
-            "icon": "world",
-            "slug": "app-email"
+            "icon": "menu-icon tf-icons ti ti-world",
+            "slug": "web-settings"
         }
     ]
 }
