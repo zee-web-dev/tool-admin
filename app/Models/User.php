@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -20,6 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'image',
         'password',
     ];
 
@@ -42,4 +44,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Set password.
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
+
+    /**
+     * Set the image.
+     */
+    public function setImageAttribute($image)
+    {
+        if ($image) {
+            $name = time() . '_' . $image->getClientOriginalName();
+            $image->move('upload/images/', $name);
+            $this->attributes['image'] = $name;
+        } else {
+            unset($this->attributes['image']);
+        }
+    }
+
+    /**
+     * Get the image.
+     */
+    public function getImageAttribute($image)
+    {
+        return asset('/upload/images/' . $image);
+    }
 }

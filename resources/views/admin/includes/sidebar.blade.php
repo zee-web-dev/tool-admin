@@ -44,7 +44,7 @@
                     $activeClass = null;
                     $currentRouteName = Route::currentRouteName();
 
-                    if (str_contains($currentRouteName, $menu->slug) and strpos($currentRouteName, $menu->slug) === 0) {
+                    if (str_contains($currentRouteName, $menu->slug) and strpos($currentRouteName, $menu->slug) === 0 && !isset($menu->submenu)) {
                         $activeClass = 'active';
                     } elseif (isset($menu->submenu)) {
                         if (gettype($menu->slug) === 'array') {

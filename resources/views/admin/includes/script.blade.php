@@ -14,12 +14,38 @@
 <!-- endbuild -->
 
 <!-- Vendors JS -->
-<script src="{{ asset('admin/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-<script src="{{ asset('admin/vendor/libs/swiper/swiper.js') }}"></script>
+{{-- <script src="{{ asset('admin/vendor/libs/apex-charts/apexcharts.js') }}"></script> --}}
+{{-- <script src="{{ asset('admin/vendor/libs/swiper/swiper.js') }}"></script> --}}
 <script src="{{ asset('admin/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+<script src="{{ asset('admin/vendor/libs/toastr/toastr.js') }}"></script>
 
 <!-- Main JS -->
 <script src="{{ asset('admin/js/main.js') }}"></script>
 
 <!-- Page JS -->
 {{-- <script src="{{asset('admin/js/dashboards-analytics.js">')}}</script> --}}
+
+<script>
+    $(function() {
+        toastr.options = {
+            maxOpened: 1,
+            autoDismiss: true,
+            closeButton: true,
+            newestOnTop: true,
+            progressBar: true,
+            positionClass: 'toast-top-right',
+            preventDuplicates: true,
+            onclick: null,
+            closeDuration: 300,
+            closeMethod: 'fadeOut',
+            closeEasing: 'swing',
+            timeOut: 2000,
+        };
+        @if (session('success'))
+            toastr.success('{{ session('success') }}', 'Success');
+        @endif
+        @if ($errors->any())
+            toastr.error("{{ $errors->first() }}", 'Error');
+        @endif
+    });
+</script>

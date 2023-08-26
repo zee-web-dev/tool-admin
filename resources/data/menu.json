@@ -16,38 +16,16 @@
             "menuHeader": "Apps & Pages"
         },
         {
+            "url": "services",
             "name": "Services",
             "icon": "menu-icon tf-icons ti ti-checkbox",
-            "slug": "services",
-            "submenu": [
-                {
-                    "url": "",
-                    "name": "Add",
-                    "slug": ""
-                },
-                {
-                    "url": "",
-                    "name": "List",
-                    "slug": ""
-                }
-            ]
+            "slug": "services"
         },
         {
+            "url": "projects",
             "name": "Projects",
             "icon": "menu-icon tf-icons ti ti-briefcase",
-            "slug": "projects",
-            "submenu": [
-                {
-                    "url": "",
-                    "name": "Add",
-                    "slug": ""
-                },
-                {
-                    "url": "",
-                    "name": "List",
-                    "slug": ""
-                }
-            ]
+            "slug": "projects"
         },
         {
             "name": "Resume",
@@ -55,19 +33,19 @@
             "slug": "resume",
             "submenu": [
                 {
-                    "url": "",
+                    "url": "resume/education",
                     "name": "Education",
-                    "slug": ""
+                    "slug": "education"
                 },
                 {
-                    "url": "",
+                    "url": "resume/experiences",
                     "name": "Experience",
-                    "slug": ""
+                    "slug": "experiencs"
                 },
                 {
-                    "url": "",
+                    "url": "resume/skills",
                     "name": "Skills",
-                    "slug": ""
+                    "slug": "skills"
                 }
             ]
         },

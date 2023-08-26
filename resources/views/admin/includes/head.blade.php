@@ -30,14 +30,16 @@
 <link rel="stylesheet" href="{{asset('admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
 <link rel="stylesheet" href="{{asset('admin/vendor/libs/node-waves/node-waves.css')}}" />
 <link rel="stylesheet" href="{{asset('admin/vendor/libs/typeahead-js/typeahead.css')}}" />
-<link rel="stylesheet" href="{{asset('admin/vendor/libs/apex-charts/apex-charts.css')}}" />
-<link rel="stylesheet" href="{{asset('admin/vendor/libs/swiper/swiper.css')}}" />
-<link rel="stylesheet" Fhref="{{asset('admin/vendor/libs/datatables-bs5/datatables.bootstrap5.css')}}" />
-<link rel="stylesheet" href="{{asset('admin/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css')}}" />
-<link rel="stylesheet" href="{{asset('admin/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css')}}" />
+{{-- <link rel="stylesheet" href="{{asset('admin/vendor/libs/apex-charts/apex-charts.css')}}" /> --}}
+{{-- <link rel="stylesheet" href="{{asset('admin/vendor/libs/swiper/swiper.css')}}" /> --}}
+<link rel="stylesheet" href="{{asset('admin/vendor/libs/datatables-bs5/datatables.bootstrap5.css')}}" />
+{{-- <link rel="stylesheet" href="{{asset('admin/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css')}}" /> --}}
+{{-- <link rel="stylesheet" href="{{asset('admin/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css')}}" /> --}}
+{{-- <link rel="stylesheet" href="{{asset('admin/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css')}}" /> --}}
+<link rel="stylesheet" href="{{asset('admin/vendor/libs/toastr/toastr.css')}}" />
 
 <!-- Page CSS -->
-<link rel="stylesheet" href="{{asset('admin/vendor/css/pages/cards-advance.css')}}" />
+{{-- <link rel="stylesheet" href="{{asset('admin/vendor/css/pages/cards-advance.css')}}" /> --}}
 <!-- Helpers -->
 <script src="{{asset('admin/vendor/js/helpers.js')}}"></script>
 
