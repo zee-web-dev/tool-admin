@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::create([
             'name' => 'admin',
             'email' => 'admin@admin.com',
+            'image' => '1.png',
             'password'  => 'admin123',
         ]);
     }
