@@ -20,7 +20,8 @@ class ExperienceController extends Controller
     public function index(): View|RedirectResponse
     {
         try {
-            return view('admin.content.experience.index');
+            $experiences = Experience::latest()->get();
+            return view('admin.content.experience.index', compact('experiences'));
         } catch (\Throwable $th) {
             return back()->withErrors(['msg' => $th->getMessage()]);
         }
@@ -43,7 +44,26 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'title' => 'required',
+                'company' => 'required',
+                'link' => 'required',
+                'from' => 'required',
+                'location' => 'required',
+            ]);
+
+            $data = $request->only([
+                'title', 'company', 'description', 'link', 'location', 'status', 'from',
+                'to'
+            ]);
+            Experience::create($data);
+
+            return redirect()->route('resume.experiences.index')
+                ->with('success', 'Experience created successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['msg' => $th->getMessage()]);
+        }
     }
 
     /**
@@ -59,7 +79,11 @@ class ExperienceController extends Controller
      */
     public function edit(Experience $experience)
     {
-        //
+        try {
+            return view('admin.content.experience.edit', compact('experience'));
+        } catch (\Throwable $th) {
+            return back()->withErrors(['msg' => $th->getMessage()]);
+        }
     }
 
     /**
@@ -67,7 +91,26 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, Experience $experience)
     {
-        //
+        try {
+            $request->validate([
+                'title' => 'required',
+                'company' => 'required',
+                'link' => 'required',
+                'from' => 'required',
+                'location' => 'required',
+            ]);
+
+            $data = $request->only([
+                'title', 'company', 'description', 'link', 'location', 'status', 'from',
+                'to'
+            ]);
+            $experience->update($data);
+
+            return redirect()->route('resume.experiences.index')
+                ->with('success', 'Experience updated successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['msg' => $th->getMessage()]);
+        }
     }
 
     /**
@@ -75,6 +118,12 @@ class ExperienceController extends Controller
      */
     public function destroy(Experience $experience)
     {
-        //
+        try {
+            $experience->delete();
+            return redirect()->route('resume.experiences.index')
+                ->with('success', 'Experience delteed successfully.');
+        } catch (\Throwable $th) {
+            return back()->withErrors(['msg' => $th->getMessage()]);
+        }
     }
 }

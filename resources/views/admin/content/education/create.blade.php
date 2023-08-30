@@ -1,7 +1,7 @@
 <x-master-layout>
-    
-    <x-form title="Add Service" :to-route="route('services.index')">
-        @include('admin.content.services.form')
+
+    <x-form title="Add Education" :action="route('resume.education.store')" :to-route="route('resume.education.index')">
+        @include('admin.content.education.form')
     </x-form>
 
 </x-master-layout>

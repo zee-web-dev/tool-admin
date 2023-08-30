@@ -1,7 +1,7 @@
 <x-master-layout>
-    
-    <x-form title="Add Service" :to-route="route('services.index')">
-        @include('admin.content.services.form')
+
+    <x-form title="Add Projects" :action="route('projects.store')" :to-route="route('projects.index')">
+        @include('admin.content.projects.form')
     </x-form>
 
 </x-master-layout>

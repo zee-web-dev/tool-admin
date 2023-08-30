@@ -11,7 +11,7 @@ class Datatable extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $title, public string $link)
+    public function __construct(public string $title = '', public string $link = '')
     {
     }
 

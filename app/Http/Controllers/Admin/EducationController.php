@@ -20,7 +20,8 @@ class EducationController extends Controller
     public function index(): View|RedirectResponse
     {
         try {
-            return view('admin.content.education.index');
+            $educations = Education::latest()->get();
+            return view('admin.content.education.index', compact('educations'));
         } catch (\Throwable $th) {
             return back()->withErrors(['msg' => $th->getMessage()]);
         }
@@ -43,7 +44,26 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'title' => 'required',
+                'institute' => 'required',
+                'link' => 'required',
+                'from' => 'required',
+                'location' => 'required',
+            ]);
+
+            $data = $request->only([
+                'title', 'institute', 'description', 'link', 'location', 'status', 'from',
+                'to'
+            ]);
+            Education::create($data);
+
+            return redirect()->route('resume.education.index')
+                ->with('success', 'Education created successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['msg' => $th->getMessage()]);
+        }
     }
 
     /**
@@ -59,7 +79,11 @@ class EducationController extends Controller
      */
     public function edit(Education $education)
     {
-        //
+        try {
+            return view('admin.content.education.edit', compact('education'));
+        } catch (\Throwable $th) {
+            return back()->withErrors(['msg' => $th->getMessage()]);
+        }
     }
 
     /**
@@ -67,7 +91,26 @@ class EducationController extends Controller
      */
     public function update(Request $request, Education $education)
     {
-        //
+        try {
+            $request->validate([
+                'title' => 'required',
+                'institute' => 'required',
+                'link' => 'required',
+                'from' => 'required',
+                'location' => 'required',
+            ]);
+
+            $data = $request->only([
+                'title', 'institute', 'description', 'link', 'location', 'status', 'from',
+                'to'
+            ]);
+            $education->update($data);
+
+            return redirect()->route('resume.education.index')
+                ->with('success', 'Education updated successfully.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['msg' => $th->getMessage()]);
+        }
     }
 
     /**
@@ -75,6 +118,12 @@ class EducationController extends Controller
      */
     public function destroy(Education $education)
     {
-        //
+        try {
+            $education->delete();
+            return redirect()->route('resume.education.index')
+                ->with('success', 'Education delteed successfully.');
+        } catch (\Throwable $th) {
+            return back()->withErrors(['msg' => $th->getMessage()]);
+        }
     }
 }

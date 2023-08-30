@@ -3,42 +3,41 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Skill;
+use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
-class SkillController extends Controller
+class ProjectCategoryController extends Controller
 {
-    public function __construct()
-    {
-    }
-
     /**
      * Display a listing of the resource.
      */
     public function index(): View|RedirectResponse
     {
         try {
-            $skills = Skill::orderBy('order')->get();
-            return view('admin.content.skills.index', compact('skills'));
+            $categories = ProjectCategory::get();
+            return view('admin.content.project-category.index', compact('categories'));
         } catch (\Throwable $th) {
             return back()->withErrors(['msg' => $th->getMessage()]);
         }
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         try {
             $request->validate([
-                'name' => 'required',
+                'title' => 'required',
             ]);
 
-            $data = $request->only(['name', 'value', 'status']);
-            Skill::updateOrCreate(['id' => $request->id], $data);
+            $data = $request->only(['title', 'description']);
+            ProjectCategory::updateOrCreate(['id' => $request->id], $data);
 
-            return redirect()->route('resume.skills.index')
-                ->with('success', 'Skill created successfully.');
+            return redirect()->route('project-category.index')
+                ->with('success', 'Project category created successfully.');
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['msg' => $th->getMessage()]);
         }
@@ -47,10 +46,10 @@ class SkillController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Skill $skill)
+    public function edit(ProjectCategory $projectCategory)
     {
         try {
-            return view('admin.content.skills.index', compact('skill'));
+            return view('admin.content.project-category.index', compact('projectCategory'));
         } catch (\Throwable $th) {
             return back()->withErrors(['msg' => $th->getMessage()]);
         }
@@ -59,12 +58,12 @@ class SkillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Skill $skill)
+    public function destroy(ProjectCategory $projectCategory)
     {
         try {
-            $skill->delete();
+            $projectCategory->delete();
             return redirect()->route('projects.index')
-                ->with('success', 'Skill delteed successfully.');
+                ->with('success', 'Project category delteed successfully.');
         } catch (\Throwable $th) {
             return back()->withErrors(['msg' => $th->getMessage()]);
         }

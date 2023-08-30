@@ -12,4 +12,12 @@ class Skill extends Model
     protected $fillable = [
         'name', 'value', 'status', 'order'
     ];
+
+    protected static function booted()
+    {
+        static::creating(function ($project) {
+            $highestOrder = static::max('order');
+            $project->order = $highestOrder + 1;
+        });
+    }
 }

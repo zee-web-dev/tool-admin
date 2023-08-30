@@ -1,27 +1,50 @@
 <div class="row g-3">
     <div class="col-md-6">
-        <label class="form-label" for="basic-default-fullname">Full Name</label>
-        <input type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe">
+        <label class="form-label" for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Title"
+            value="{{ $education->title ?? '' }}" required>
     </div>
+
     <div class="col-md-6">
-        <label class="form-label" for="basic-default-company">Company</label>
-        <input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc.">
+        <label class="form-label" for="status">Status</label>
+        <select name="status" id="status" class="form-control">
+            <option value="">Select Option</option>
+            <option value="1" {{ isset($education) && $education->status == 1 ? "selected" :  '' }}>Active</option>
+            <option value="0" {{ isset($education) && $education->status == 0 ? "selected" :  '' }}>In-Active</option>
+        </select>
     </div>
+
     <div class="col-md-6">
-        <label class="form-label" for="basic-default-email">Email</label>
-        <div class="input-group input-group-merge">
-            <input type="text" id="basic-default-email" class="form-control" placeholder="john.doe"
-                aria-label="john.doe" aria-describedby="basic-default-email2">
-            <span class="input-group-text" id="basic-default-email2">@example.com</span>
-        </div>
-        <div class="form-text">You can use letters, numbers &amp; periods</div>
+        <label class="form-label" for="institute">Institute Name</label>
+        <input type="text" class="form-control" id="institute" name="institute" placeholder="Institute Name"
+            value="{{ $education->institute ?? '' }}" required>
     </div>
+
     <div class="col-md-6">
-        <label class="form-label" for="basic-default-phone">Phone No</label>
-        <input type="text" id="basic-default-phone" class="form-control phone-mask" placeholder="658 799 8941">
+        <label class="form-label" for="link">Institute URL</label>
+        <input type="url" class="form-control" id="link" name="link" placeholder="Link"
+            value="{{ $education->link ?? '' }}" required>
     </div>
+
     <div class="col-md-6">
-        <label class="form-label" for="basic-default-message">Message</label>
-        <textarea id="basic-default-message" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
+        <label class="form-label" for="from">From</label>
+        <input type="date" class="form-control" id="from" name="from"
+            value="{{ $education->from ?? '' }}" required>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label" for="to">To</label>
+        <input type="date" class="form-control" id="to" name="to"
+            value="{{ $education->to ?? '' }}" required>
+    </div>
+
+    <div class="col-md-12">
+        <label class="form-label" for="location">Location</label>
+        <textarea id="location" class="form-control" name="location">{{ $education->location ?? '' }}</textarea>
+    </div>
+
+    <div class="col-md-12">
+        <label class="form-label" for="description">Description</label>
+        <textarea id="description" class="form-control" name="description">{{ $education->description ?? '' }}</textarea>
     </div>
 </div>

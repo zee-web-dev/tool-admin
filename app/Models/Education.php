@@ -12,4 +12,15 @@ class Education extends Model
     protected $fillable = [
         'title', 'institute', 'link', 'location', 'from', 'to', 'description', 'order', 'status'
     ];
+
+    /**
+     * Boot method to increament in order.
+     */
+    protected static function booted()
+    {
+        static::creating(function ($project) {
+            $highestOrder = static::max('order');
+            $project->order = $highestOrder + 1;
+        });
+    }
 }

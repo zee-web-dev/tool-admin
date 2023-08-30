@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AppSettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SkillController;
@@ -27,40 +28,52 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::delete('{service}',       'destroy')->name('destroy');
     });
 
-    /* -------------------------------- Education ------------------------------- */
-    Route::controller(EducationController::class)->prefix('resume/education')->as('education.')->group(function () {
-        Route::get('/',         'index')->name('index');
-        Route::get('create',    'create')->name('create');
-        Route::post('store',    'store')->name('store');
-        Route::get('{education}/edit', 'edit')->name('edit');
-        Route::delete('{education}',   'destroy')->name('destroy');
-    });
-
-    /* -------------------------------- Experiences ------------------------------- */
-    Route::controller(ExperienceController::class)->prefix('resume/experiences')->as('experiences.')->group(function () {
-        Route::get('/',         'index')->name('index');
-        Route::get('create',    'create')->name('create');
-        Route::post('store',    'store')->name('store');
-        Route::get('{experience}/edit', 'edit')->name('edit');
-        Route::delete('{experience}',   'destroy')->name('destroy');
-    });
-
-    /* -------------------------------- Skills ------------------------------- */
-    Route::controller(SkillController::class)->prefix('resume/skills')->as('skills.')->group(function () {
-        Route::get('/',         'index')->name('index');
-        Route::get('create',    'create')->name('create');
-        Route::post('store',    'store')->name('store');
-        Route::get('{skill}/edit', 'edit')->name('edit');
-        Route::delete('{skill}',   'destroy')->name('destroy');
+    /* -------------------------------- Project Categories ------------------------------- */
+    Route::controller(ProjectCategoryController::class)->prefix('project-category')->as('project-category.')->group(function () {
+        Route::get('/',                          'index')->name('index');
+        Route::post('store',                     'store')->name('store');
+        Route::get('{projectCategory}/edit',     'edit')->name('edit');
+        Route::patch('{projectCategory}/status', 'status')->name('status');
+        Route::delete('{projectCategory}',                'destroy')->name('destroy');
     });
 
     /* -------------------------------- Projects ------------------------------- */
     Route::controller(ProjectController::class)->prefix('projects')->as('projects.')->group(function () {
+        Route::get('/',                  'index')->name('index');
+        Route::get('create',             'create')->name('create');
+        Route::post('store',             'store')->name('store');
+        Route::get('{project}/edit',     'edit')->name('edit');
+        Route::patch('{project}/update', 'update')->name('update');
+        Route::delete('{project}',       'destroy')->name('destroy');
+    });
+
+    /* -------------------------------- Education ------------------------------- */
+    Route::controller(EducationController::class)->prefix('resume/education')->as('resume.education.')->group(function () {
         Route::get('/',         'index')->name('index');
         Route::get('create',    'create')->name('create');
         Route::post('store',    'store')->name('store');
-        Route::get('{project}/edit', 'edit')->name('edit');
-        Route::delete('{project}',   'destroy')->name('destroy');
+        Route::get('{education}/edit', 'edit')->name('edit');
+        Route::patch('{education}/update', 'update')->name('update');
+        Route::delete('{education}',   'destroy')->name('destroy');
+    });
+
+    /* -------------------------------- Experiences ------------------------------- */
+    Route::controller(ExperienceController::class)->prefix('resume/experiences')->as('resume.experiences.')->group(function () {
+        Route::get('/',         'index')->name('index');
+        Route::get('create',    'create')->name('create');
+        Route::post('store',    'store')->name('store');
+        Route::get('{experience}/edit', 'edit')->name('edit');
+        Route::patch('{experience}/update', 'update')->name('update');
+        Route::delete('{experience}',   'destroy')->name('destroy');
+    });
+
+    /* -------------------------------- Skills ------------------------------- */
+    Route::controller(SkillController::class)->prefix('resume/skills')->as('resume.skills.')->group(function () {
+        Route::get('/',         'index')->name('index');
+        Route::post('store',    'store')->name('store');
+        Route::get('{skill}/edit', 'edit')->name('edit');
+        Route::patch('{projectCategory}/status', 'status')->name('status');
+        Route::delete('{skill}',   'destroy')->name('destroy');
     });
 
 

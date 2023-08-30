@@ -47,7 +47,7 @@
                         },
                     ],
                     order: [
-                        [1, 'desc']
+                        [1, 'asc']
                     ],
                     displayLength: 7,
                     lengthMenu: [7, 10, 25, 50, 75, 100],

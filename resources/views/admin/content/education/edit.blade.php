@@ -1,7 +1,7 @@
 <x-master-layout>
 
-    <x-form title="Add Service" :to-route="route('services.edit', $service->id)" :method="@method('PATCH')">
-        @include('admin.content.services.form')
+    <x-form title="Update Education" :action="route('resume.education.update', $education->id)" :to-route="route('resume.education.edit', $education->id)" method="patch">
+        @include('admin.content.education.form')
     </x-form>
 
 </x-master-layout>

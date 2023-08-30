@@ -12,4 +12,15 @@ class Experience extends Model
     protected $fillable = [
         'title', 'company', 'link', 'location', 'from', 'to', 'description', 'order', 'status'
     ];
+
+    /**
+     * Boot method to increament in order.
+     */
+    protected static function booted()
+    {
+        static::creating(function ($project) {
+            $highestOrder = static::max('order');
+            $project->order = $highestOrder + 1;
+        });
+    }
 }
