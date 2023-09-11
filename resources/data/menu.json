@@ -93,16 +93,16 @@
             "menuHeader": "Settings"
         },
         {
-            "url": "app-settings",
-            "name": "App Settings",
-            "icon": "menu-icon tf-icons ti ti-settings",
-            "slug": "app-settings"
+            "url": "sections",
+            "name": "Sections",
+            "icon": "menu-icon tf-icons ti ti-list-details",
+            "slug": "sections"
         },
         {
-            "url": "web-settings",
-            "name": "Web Settings",
-            "icon": "menu-icon tf-icons ti ti-world",
-            "slug": "web-settings"
+            "url": "settings",
+            "name": "Settings",
+            "icon": "menu-icon tf-icons ti ti-settings",
+            "slug": "settings"
         }
     ]
 }

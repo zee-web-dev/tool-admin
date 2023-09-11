@@ -13,7 +13,28 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                jost: ['Jost', 'Helvetica', 'Arial', 'sans-serif']
             },
+            colors: {
+                'theme': '#ee0000'
+            },
+            animation: {
+                bounceSlow: 'bounceSlow .98s ease infinite alternate',
+            },
+            keyframes: {
+                bounceSlow: {
+                    '0%': { transform: 'translateY(0px)' },
+                    '100%': { transform: 'translateY(-8px)' },
+                }
+
+            },
+        },
+        container: {
+            center: true,
+            padding: '1rem',
+            screens: {
+                '2xl': '1280px',
+            }
         },
     },
 

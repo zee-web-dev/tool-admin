@@ -6,7 +6,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -59,6 +61,10 @@ class User extends Authenticatable
     public function setImageAttribute($image)
     {
         if ($image) {
+            $oldFile = public_path('upload/images/' . $this->attributes['image']);
+            if (File::exists($oldFile)) {
+                File::delete($oldFile);
+            }
             $name = time() . '_' . $image->getClientOriginalName();
             $image->move('upload/images/', $name);
             $this->attributes['image'] = $name;

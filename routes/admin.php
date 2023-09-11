@@ -6,7 +6,9 @@ use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\WebSettingController;
 use Illuminate\Support\Facades\Route;
@@ -76,15 +78,24 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::delete('{skill}',   'destroy')->name('destroy');
     });
 
-
-    /* -------------------------------- Web Settings ------------------------------- */
-    Route::controller(WebSettingController::class)->prefix('web-settings')->as('web-settings.')->group(function () {
+    /* -------------------------------- Settings ------------------------------- */
+    Route::controller(SettingController::class)->prefix('settings')->as('settings.')->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::post('/store', 'store')->name('store');
+        Route::get('seo', 'index')->name('seo');
+        Route::get('contact', 'index')->name('contact');
+        Route::get('general', 'index')->name('general');
+        Route::get('about', 'index')->name('about');
+        Route::get('analytics', 'index')->name('analytics');
+        Route::get('calendly', 'index')->name('calendly');
     });
 
-    /* -------------------------------- Web Settings ------------------------------- */
-    Route::controller(AppSettingController::class)->prefix('app-settings')->as('app-settings.')->group(function () {
+    /* -------------------------------- Sections ------------------------------- */
+    Route::controller(SectionController::class)->prefix('sections')->as('sections.')->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::post('/store', 'store')->name('store');
+        Route::get('about', 'index')->name('about');
+        Route::get('services', 'index')->name('services');
     });
 
 

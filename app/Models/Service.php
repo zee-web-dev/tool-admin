@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class Service extends Model
 {
@@ -20,6 +21,10 @@ class Service extends Model
     public function setImageAttribute($image)
     {
         if ($image) {
+            $oldFile = public_path('upload/images/' . $this->attributes['image']);
+            if (File::exists($oldFile)) {
+                File::delete($oldFile);
+            }
             $name = time() . '_' . $image->getClientOriginalName();
             $image->move('upload/images/', $name);
             $this->attributes['image'] = $name;

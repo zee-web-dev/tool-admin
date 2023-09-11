@@ -20,4 +20,13 @@ class Skill extends Model
             $project->order = $highestOrder + 1;
         });
     }
+
+
+    /**
+     * Get active records.
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }

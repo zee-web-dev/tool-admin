@@ -8,7 +8,7 @@
 
     <div class="col-md-6">
         <label class="form-label" for="value">Value</label>
-        <input type="number" class="form-control" id="value" name="value" min="0"
+        <input type="number" class="form-control" id="value" name="value" min="0" max="100"
             value="{{ $skill->value ?? '' }}" required>
     </div>
 

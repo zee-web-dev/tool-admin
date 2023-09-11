@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class Project extends Model
 {
@@ -31,6 +33,10 @@ class Project extends Model
     public function setImageAttribute($image)
     {
         if ($image) {
+            $oldFile = public_path('upload/images/' . $this->attributes['image']);
+            if (File::exists($oldFile)) {
+                File::delete($oldFile);
+            }
             $name = time() . '_' . $image->getClientOriginalName();
             $image->move('upload/images/', $name);
             $this->attributes['image'] = $name;

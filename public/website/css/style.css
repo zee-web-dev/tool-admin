@@ -1,0 +1,257 @@
+
+.download-cv-btn::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 7px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 20px;
+    transform: scale3d(1, 1, 1);
+    transition: transform 0.2s, opacity 0.2s;
+    transition-timing-function: cubic-bezier(0.2, 0.57, 0.67, 1.53);
+    background-color: #ee0000 !important;
+}
+
+.download-cv-btn:hover::before {
+    transition-timing-function: cubic-bezier(0.8, 0, 0.1, 1);
+    transition-duration: 0.4s;
+    opacity: 1;
+    transform: scale3d(1.2, 0.1, 1);
+}
+
+.btn-dark {
+    color: #fff !important;
+    background-color: black !important;
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #ee0000 !important;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.3s;
+    text-decoration: none;
+}
+
+.btn-dark:hover {
+    box-shadow: inset 400px 0 0 0 #ee0000 !important;
+    color: white !important;
+}
+
+.btn-light {
+    color: #fff !important;
+    background-color: black !important;
+    border: 1px solid white;
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #ffffff !important;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.3s;
+    text-decoration: none;
+}
+
+.btn-light:hover {
+    box-shadow: inset 400px 0 0 0 #ffffff !important;
+    color: black !important;
+}
+
+.slide-prev-btn,
+.slide-next-btn {
+    position: absolute;
+    top: 95% !important;
+    color: black !important;
+    font-size: 30px !important;
+}
+
+.slide-prev-btn.swiper-button-prev::after,
+.swiper-button-next.slide-next-btn::after {
+    content: '';
+}
+
+
+.progress-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    border-radius: 50%;
+    background-color: #292929;
+    box-shadow: 0 0 5px 3px #222121;
+}
+
+.box::before {
+    position: absolute;
+    content: '';
+    width: calc(100% + 28px);
+    height: calc(100% + 28px);
+    border-radius: 50%;
+    border: 1px solid #353535;
+}
+
+.box .number span {
+    color: #e9e9e9;
+}
+
+.box .number .num {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.box .number .sub {
+    font-size: 20px;
+}
+
+.box .title {
+    font-size: 15px;
+    color: #9b9b9b;
+}
+
+.dots {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: 2s transform, 2s opacity ease;
+}
+
+.dots::after {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 5px;
+    left: 50%;
+    border-radius: 50%;
+    background-color: #b7b5b5;
+    box-shadow: 0 0 5px 2px #585858;
+    transform: translateX(-50%);
+}
+
+.svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    transform: rotate(-90deg);
+}
+
+.circle {
+    stroke: url(#gradientStyle);
+    stroke-width: 4px;
+    stroke-dasharray: 503;
+    stroke-dashoffset: 503;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    transition: 2s stroke-dashoffset;
+}
+
+.stroke-text {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #ee0000;
+}
+.stroke-text-white {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #ffffff;
+}
+
+.link {
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    white-space: nowrap;
+    color: black;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+.link::before,
+.link::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+}
+.link::before {
+    content: '';
+}
+
+.link-anim {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.link-anim::before {
+    transform-origin: 0% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s;
+}
+
+.link-anim:hover::before {
+    transform: scale3d(1, 1, 1);
+}
+
+.link-anim::after {
+    content: '';
+    top: calc(100% + 4px);
+    transition: transform 0.3s;
+    transform-origin: 100% 50%;
+}
+
+.link-anim:hover::after {
+    color: #ee0000!important;
+    transform: scale3d(0, 1, 1);
+}
+
+/* scroll top */
+#scroll_top {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 10px; /* Place the button at the bottom of the page */
+    right: 10px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: black; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px 15px 10px 15px; /* Some padding */
+    transition: 0.3s;
+}
+#scroll_top:hover {
+    background-color: #ee0000; /* Add a dark-grey background on hover */
+    color: white;
+}
+/* /.scroll top */
