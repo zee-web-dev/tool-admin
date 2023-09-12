@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Website\MainController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index']);
 Route::post('/contact', [MainController::class, 'contact'])->name('home.contact');
+
+Route::get('/cache-clear', function () {
+    Artisan::call('optimize:clear');
+    return "cache cleared";
+});
 
 // Route::get('/dashboard', function () {
 //     return view('admin.content.dashboard.index');
