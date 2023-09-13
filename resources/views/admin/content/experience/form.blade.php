@@ -9,8 +9,10 @@
         <label class="form-label" for="status">Status</label>
         <select name="status" id="status" class="form-control">
             <option value="">Select Option</option>
-            <option value="1" {{ isset($experience) && $experience->status == 1 ? "selected" :  '' }}>Active</option>
-            <option value="0" {{ isset($experience) && $experience->status == 0 ? "selected" :  '' }}>In-Active</option>
+            <option value="1" {{ isset($experience) && $experience->status == 1 ? 'selected' : '' }}>Active
+            </option>
+            <option value="0" {{ isset($experience) && $experience->status == 0 ? 'selected' : '' }}>In-Active
+            </option>
         </select>
     </div>
 
@@ -26,16 +28,23 @@
             value="{{ $experience->link ?? '' }}" required>
     </div>
 
+    <div class="col-md-12">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="working">
+            <label class="form-check-label" for="working">Still Working Here</label>
+        </div>
+
+    </div>
+
     <div class="col-md-6">
         <label class="form-label" for="from">From</label>
-        <input type="date" class="form-control" id="from" name="from"
-            value="{{ $experience->from ?? '' }}" required>
+        <input type="date" class="form-control" id="from" name="from" value="{{ $experience->from ?? '' }}"
+            required>
     </div>
 
     <div class="col-md-6">
         <label class="form-label" for="to">To</label>
-        <input type="date" class="form-control" id="to" name="to"
-            value="{{ $experience->to ?? '' }}" required>
+        <input type="date" class="form-control" id="to" name="to" value="{{ $experience->to ?? '' }}">
     </div>
 
     <div class="col-md-12">
@@ -48,3 +57,13 @@
         <textarea id="description" class="form-control" name="description">{{ $experience->description ?? '' }}</textarea>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(function() {
+            $('#working').click(function() {
+                $("#to").prop('disabled', this.checked);
+            });
+        })
+    </script>
+@endpush

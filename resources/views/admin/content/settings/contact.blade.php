@@ -40,9 +40,9 @@
                 </div>
 
                 <div class="col col-md-6">
-                    <label for="instagram">Instagram</label>
-                    <input type="url" id="instagram" name="settings[instagram]" class="form-control"
-                        value="{{ $setting['instagram'] ?? '' }}" />
+                    <label for="github">Github</label>
+                    <input type="url" id="github" name="settings[github]" class="form-control"
+                        value="{{ $setting['github'] ?? '' }}" />
                 </div>
 
             </div>

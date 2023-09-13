@@ -61,9 +61,11 @@ class User extends Authenticatable
     public function setImageAttribute($image)
     {
         if ($image) {
-            $oldFile = public_path('upload/images/' . $this->attributes['image']);
-            if (File::exists($oldFile)) {
-                File::delete($oldFile);
+            if (isset($this->attributes['image'])) {
+                $oldFile = public_path('upload/images/' . $this->attributes['image'] ?? '');
+                if (File::exists($oldFile)) {
+                    File::delete($oldFile);
+                }
             }
             $name = time() . '_' . $image->getClientOriginalName();
             $image->move('upload/images/', $name);

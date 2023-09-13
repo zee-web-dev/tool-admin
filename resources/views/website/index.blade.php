@@ -2,10 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+
+    <title>{{ getSetting('meta_title') }}</title>
+    <meta name="description" content="{{ getSetting('meta_description') }}" />
+    <meta charset="UTF-8" />
+    <meta name="robots" content="follow,index" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffca40" />
+
+    <link rel="canonical" href="https://zeeshandev.com" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ getSetting('meta_title') }}" />
+    <meta property="og:description" content="{{ getSetting('meta_description') }}" />
+    <meta property="og:url" content="https://zeeshandev.com" />
+
+    <meta property="og:site_name" content="{{ getSetting('site_name') }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="{{ getSetting('site_name') }}" />
+    <meta property="twitter:title" content="{{ getSetting('meta_title') }}" />
+    <meta property="twitter:description" content="{{ getSetting('meta_description') }}" />
+
+
+
+
     <link rel="stylesheet" href="{{ asset('website/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/app.css') }}">
     <!-- Fontawesome-icons -->
@@ -17,6 +38,15 @@
         rel="stylesheet">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    @if (getSetting('google_script'))
+        {!! getSetting('google_script') !!}
+    @endif
+
+    @if (getSetting('calendly_script'))
+        {!! getSetting('calendly_script') !!}
+    @endif
+
 </head>
 
 <body class="font-jost font-">
@@ -243,45 +273,54 @@
 
                 <div class="row-span-2 flex items-center">
                     <div class="shadow md:shadow-lg bg-white rounded-lg">
-                        <div class="p-8 text-center">
+                        <div class="p-8 flex justify-center flex-col">
                             <div class="mt-2 mb-6">
-                                <img src="https://img.icons8.com/wired/64/null/google-code.png"
+                                <img src="{{ $services[0]->image ?? '' }}"
                                     class="p-2 mx-auto border-solid border-4 border-theme rounded-full"
                                     alt="">
                             </div>
-                            <h3 class="text-lg font-medium leading-5">Web <br> Development</h3>
-                            <p class="mt-2 font-normal text-sm text-gray-700">Simply dummy text of the print and
-                                typesetting industry lorem Ipsum has been standard.</p>
+                            <h3 class="text-lg font-medium text-center leading-5 table-caption">
+                                {{ $services[0]->title ?? '' }}
+                            </h3>
+                            <p class="mt-2 font-normal text-sm text-gray-700 text-center">
+                                {{ $services[0]->description ?? '' }}
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div>
                     <div class="shadow md:shadow-lg bg-white rounded-lg">
-                        <div class="p-8 text-center">
+                        <div class="p-8 flex justify-center flex-col">
                             <div class="mt-2 mb-6">
-                                <img src="https://img.icons8.com/wired/64/null/google-code.png"
+                                <img src="{{ $services[1]->image ?? '' }}"
                                     class="p-2 mx-auto border-solid border-4 border-theme rounded-full"
                                     alt="">
                             </div>
-                            <h3 class="text-lg font-medium leading-5">Web <br> Development</h3>
-                            <p class="mt-2 font-normal text-sm text-gray-700">Simply dummy text of the print and
-                                typesetting industry lorem Ipsum has been standard.</p>
+                            <h3 class="text-lg font-medium text-center leading-5 table-caption">
+                                {{ $services[1]->title ?? '' }}
+                            </h3>
+                            <p class="mt-2 font-normal text-sm text-gray-700 text-center">
+                                {{ $services[1]->description ?? '' }}
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div>
                     <div class="shadow md:shadow-lg bg-white rounded-lg">
-                        <div class="p-8 text-center">
+                        <div class="p-8 flex justify-center flex-col">
                             <div class="mt-2 mb-6">
-                                <img src="https://img.icons8.com/wired/64/null/google-code.png"
+                                <img src="{{ $services[2]->image ?? '' }}"
                                     class="p-2 mx-auto border-solid border-4 border-theme rounded-full"
                                     alt="">
                             </div>
-                            <h3 class="text-lg font-medium leading-5">Web <br> Development</h3>
-                            <p class="mt-2 font-normal text-sm text-gray-700">Simply dummy text of the print and
-                                typesetting industry lorem Ipsum has been standard.</p>
+                            <h3 class="text-lg font-medium text-center leading-5 table-caption">
+                                {{ $services[2]->title ?? '' }}
+                            </h3>
+                            <p class="mt-2 font-normal text-sm text-gray-700 text-center">
+                                {{ $services[2]->description ?? '' }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -757,12 +796,16 @@
     <footer class="flex flex-col items-center bg-black text-center text-white py-6">
         <!--Copyright section-->
         <div class="w-full px-4 py-3 text-center">
-            © 2023 Copyright:
-            <a class="text-whitehite" href="">Tailwind Elements</a>
+            @if (getSetting('footer_text'))
+                {{ getSetting('footer_text') }}
+            @else
+                © 2023 Copyright:
+                <a class="text-whitehite" href="#">ZeeshanDev.com</a>
+            @endif
         </div>
         <div class="container px-6">
             <div class="flex justify-center">
-                <a href="#!" type="button"
+                <a href="{{ getSetting('facebook') }}" target="_blank"
                     class="my-1 mx-2 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out  hover:border-theme">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -771,7 +814,7 @@
                     </svg>
                 </a>
 
-                <a href="#!" type="button"
+                <a href="{{ getSetting('twitter') }}" target="_blank"
                     class="my-1 mx-2 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-theme"
                     data-te-ripple-init data-te-ripple-color="light">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" width="24" height="24"
@@ -783,7 +826,7 @@
                     </svg>
                 </a>
 
-                <a href="#!" type="button"
+                <a href="{{ getSetting('linkedin') }}" target="_blank"
                     class="my-1 mx-2 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-theme"
                     data-te-ripple-init data-te-ripple-color="light">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" width="24" height="24"
@@ -796,7 +839,7 @@
                     </svg>
                 </a>
 
-                <a href="#!" type="button"
+                <a href="{{ getSetting('github') }}" target="_blank"
                     class="my-1 mx-2 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-theme"
                     data-te-ripple-init data-te-ripple-color="light">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" width="24" height="24"
@@ -817,6 +860,7 @@
 
     <!-- scroll top button -->
     <button class="shadow" onclick="topFunction()" id="scroll_top"><i class="fa-solid fa-arrow-up"></i></button>
+
 
     <script src="{{ asset('website/js/flowbite.min.js') }}"></script>
     <script src="{{ asset('website/js/main.js') }}"></script>
