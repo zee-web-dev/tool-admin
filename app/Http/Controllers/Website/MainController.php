@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Project;
+use App\Models\Service;
 use App\Models\Skill;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -15,11 +16,12 @@ class MainController extends Controller
 {
     public function index(): View
     {
+        $services = Service::active()->orderBy('order')->take(3)->get();
         $skills = Skill::active()->orderBy('order')->get();
         $projects = Project::with('category')->active()->orderBy('order')->get();
         $experience = Experience::active()->orderBy('order')->get();
         $education = Education::active()->orderBy('order')->get();
-        return view('website.index', compact('skills', 'projects', 'education', 'experience'));
+        return view('website.index', compact('skills', 'projects', 'education', 'experience', 'services'));
     }
 
     public function contact(Request $request)

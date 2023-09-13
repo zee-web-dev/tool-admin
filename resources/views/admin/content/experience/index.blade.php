@@ -25,7 +25,7 @@
                         <td>{{ $experience->company ?? '' }}</td>
                         <td>{{ $experience->location ?? '' }}</td>
                         <td>{{ $experience->from ?? '' }}</td>
-                        <td>{{ $experience->to ?? '' }}</td>
+                        <td>{{ $experience->to ?? 'Continue' }}</td>
                         <td>
                             <form action="" method="POST">
                                 @csrf

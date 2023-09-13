@@ -30,12 +30,12 @@
 
                 <div class="col-12">
                     <label for="meta_title">Meta Title</label>
-                    <textarea id="meta_title" name="settings[meta_title]" class="form-control">{{ $setting['footer_text'] ?? '' }}</textarea>
+                    <textarea id="meta_title" name="settings[meta_title]" class="form-control">{{ $setting['meta_title'] ?? '' }}</textarea>
                 </div>
 
                 <div class="col-12">
                     <label for="meta_description">Meta Description</label>
-                    <textarea id="meta_description" name="settings[meta_description]" class="form-control">{{ $setting['footer_text'] ?? '' }}</textarea>
+                    <textarea id="meta_description" name="settings[meta_description]" class="form-control">{{ $setting['meta_description'] ?? '' }}</textarea>
                 </div>
 
 

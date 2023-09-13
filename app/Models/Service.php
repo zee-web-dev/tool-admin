@@ -11,8 +11,19 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'image', 'description', 'status'
+        'title', 'image', 'description', 'status', 'order'
     ];
+
+    /**
+     * Boot method to increament in order.
+     */
+    protected static function booted()
+    {
+        static::creating(function ($project) {
+            $highestOrder = static::max('order');
+            $project->order = $highestOrder + 1;
+        });
+    }
 
 
     /**
@@ -21,9 +32,11 @@ class Service extends Model
     public function setImageAttribute($image)
     {
         if ($image) {
-            $oldFile = public_path('upload/images/' . $this->attributes['image']);
-            if (File::exists($oldFile)) {
-                File::delete($oldFile);
+            if (isset($this->attributes['image'])) {
+                $oldFile = public_path('upload/images/' . $this->attributes['image'] ?? '');
+                if (File::exists($oldFile)) {
+                    File::delete($oldFile);
+                }
             }
             $name = time() . '_' . $image->getClientOriginalName();
             $image->move('upload/images/', $name);
