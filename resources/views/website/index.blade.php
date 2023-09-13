@@ -24,9 +24,6 @@
     <meta property="twitter:title" content="{{ getSetting('meta_title') }}" />
     <meta property="twitter:description" content="{{ getSetting('meta_description') }}" />
 
-
-
-
     <link rel="stylesheet" href="{{ asset('website/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/app.css') }}">
     <!-- Fontawesome-icons -->
@@ -43,13 +40,10 @@
         {!! getSetting('google_script') !!}
     @endif
 
-    @if (getSetting('calendly_script'))
-        {!! getSetting('calendly_script') !!}
-    @endif
 
 </head>
 
-<body class="font-jost font-">
+<body class="font-jost">
 
     <!-- Navbar -->
     <nav class="bg-white w-full z-20 top-0 left-0">
@@ -859,7 +853,7 @@
     <!-- /Footer -->
 
     <!-- scroll top button -->
-    <button class="shadow" onclick="topFunction()" id="scroll_top"><i class="fa-solid fa-arrow-up"></i></button>
+    {{-- <button class="shadow" onclick="topFunction()" id="scroll_top"><i class="fa-solid fa-arrow-up"></i></button> --}}
 
 
     <script src="{{ asset('website/js/flowbite.min.js') }}"></script>
@@ -962,6 +956,10 @@
             })
         });
     </script>
+
+    @if (getSetting('calendly_script'))
+        {!! getSetting('calendly_script') !!}
+    @endif
 
 </body>
 
