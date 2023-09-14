@@ -525,7 +525,9 @@
                                                     </svg>
                                                 </span>
                                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                                    {{ $value['title'] ?? '' }}
+                                                    {{ $value['title'] ?? '' }}, <a
+                                                        href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                        class="font-normal ml-2 text-theme">{{ $value['institute'] ?? '' }}</a>
                                                 </h3>
                                                 <time
                                                     class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -559,7 +561,9 @@
                                                     </svg>
                                                 </span>
                                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                                    {{ $value['title'] ?? '' }}
+                                                    {{ $value['title'] ?? '' }}, <a
+                                                        href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                        class="font-normal ml-2 text-theme">{{ $value['institute'] ?? '' }}</a>
                                                 </h3>
                                                 <time
                                                     class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -602,7 +606,9 @@
                                                     </svg>
                                                 </span>
                                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                                    {{ $value['title'] ?? '' }}
+                                                    {{ $value['title'] ?? '' }}, <a
+                                                        href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                        class="font-normal ml-2 text-theme">{{ $value['company'] ?? '' }}</a>
                                                 </h3>
                                                 <time
                                                     class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -636,7 +642,9 @@
                                                     </svg>
                                                 </span>
                                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                                    {{ $value['title'] ?? '' }}
+                                                    {{ $value['title'] ?? '' }}, <a
+                                                        href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                        class="font-normal ml-2 text-theme">{{ $value['company'] ?? '' }}</a>
                                                 </h3>
                                                 <time
                                                     class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
@@ -684,7 +692,8 @@
                                 <div class="pt-4 pb-6">
                                     <p class="text-lg font-medium">{{ $project->category->title ?? '' }}</p>
                                     <h2 class="text-3xl font-semibold mb-3">{{ $project->title ?? '' }}</h2>
-                                    <a href="{{ $project->link ?? '' }}" rel="nofollow" class="uppercase link link-anim">View
+                                    <a href="{{ $project->link ?? '' }}" rel="nofollow"
+                                        class="uppercase link link-anim">View
                                         Project</a>
                                 </div>
                             </div>
