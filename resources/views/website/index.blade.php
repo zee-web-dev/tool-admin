@@ -524,16 +524,16 @@
                                                             d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                                     </svg>
                                                 </span>
-                                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                                    {{ $value['title'] ?? '' }}, <a
-                                                        href="{{ $value['link'] ?? '#' }}" rel="nofollow"
-                                                        class="font-normal ml-2 text-theme">{{ $value['institute'] ?? '' }}</a>
+                                                <h3 class="flex items-center mb-0 text-lg font-semibold text-gray-900">
+                                                    {{ $value['title'] ?? '' }}
                                                 </h3>
+                                                <a href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                    class="font-normal text-lg mb-2 text-theme">{{ $value['institute'] ?? '' }}</a>
                                                 <time
-                                                    class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    {{ $value['to'] ? 'To ' . date('M d, Y', strtotime($value['to'])) : '' }}
+                                                    To {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -561,15 +561,15 @@
                                                     </svg>
                                                 </span>
                                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                                    {{ $value['title'] ?? '' }}, <a
-                                                        href="{{ $value['link'] ?? '#' }}" rel="nofollow"
-                                                        class="font-normal ml-2 text-theme">{{ $value['institute'] ?? '' }}</a>
+                                                    {{ $value['title'] ?? '' }}
                                                 </h3>
+                                                <a href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                    class="font-normal text-lg mb-2 text-theme">{{ $value['institute'] ?? '' }}</a>
                                                 <time
-                                                    class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    {{ $value['to'] ? 'To ' . date('M d, Y', strtotime($value['to'])) : '' }}
+                                                    To {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -605,16 +605,16 @@
                                                             d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                                     </svg>
                                                 </span>
-                                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                                    {{ $value['title'] ?? '' }}, <a
-                                                        href="{{ $value['link'] ?? '#' }}" rel="nofollow"
-                                                        class="font-normal ml-2 text-theme">{{ $value['company'] ?? '' }}</a>
+                                                <h3 class="flex items-center mb-0 text-lg font-semibold text-gray-900">
+                                                    {{ $value['title'] ?? '' }}
                                                 </h3>
+                                                <a href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                    class="font-normal mb-2 text-theme">{{ $value['company'] ?? '' }}</a>
                                                 <time
-                                                    class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    {{ $value['to'] ? 'To ' . date('M d, Y', strtotime($value['to'])) : '' }}
+                                                    To {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -641,16 +641,16 @@
                                                             d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                                     </svg>
                                                 </span>
-                                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
-                                                    {{ $value['title'] ?? '' }}, <a
-                                                        href="{{ $value['link'] ?? '#' }}" rel="nofollow"
-                                                        class="font-normal ml-2 text-theme">{{ $value['company'] ?? '' }}</a>
+                                                <h3 class="flex items-center mb-0 text-lg font-semibold text-gray-900">
+                                                    {{ $value['title'] ?? '' }}
                                                 </h3>
+                                                <a href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                    class="font-normal mb-2 text-theme">{{ $value['company'] ?? '' }}</a>
                                                 <time
-                                                    class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    {{ $value['to'] ? 'To ' . date('M d, Y', strtotime($value['to'])) : '' }}
+                                                    To {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
