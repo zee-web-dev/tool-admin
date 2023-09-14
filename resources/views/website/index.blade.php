@@ -98,12 +98,12 @@
     <!-- /Navbar -->
 
     <!-- Header Section -->
-    <div class="container grid grid-cols-1 md:grid-cols-2 md:gap-4  py-12">
+    <div class="container grid grid-cols-1 md:grid-cols-2 md:gap-4  py-8 md:py-12">
         <div class="pt-5 md:pt-16 order-last md:order-none">
             <p class="text-theme font-medium leading-3 text-3xl ml-1 mb-2">I'm</p>
             <h1 class="text-[4.5rem] md:text-[7.5rem] font-semibold leading-none table-caption">
                 {{ getSetting('user_name') }}</h1>
-            <p class="text-xl mt-2 mb-24 w-full h-8 sm:h-auto">A passionate
+            <p class="text-xl mt-2 mb-12 md:mb-24 w-full h-8 sm:h-auto">A passionate
                 <span class="txt-rotate font-medium text-theme" data-period="2000"
                     data-rotate="{{ json_encode(explode(', ', getSection('prof_text'))) }}"></span>
             </p>
@@ -150,7 +150,7 @@
         </div>
         <div class="relative py-8 md:p-0">
             <div
-                class="absolute top-0 md:left-6 md:top-16 z-50 shadow rounded px-2 py-3 flex bg-white animate-bounceSlow">
+                class="absolute top-4 md:left-6 md:top-16 z-50 shadow rounded px-2 py-3 flex bg-white animate-bounceSlow">
                 <img src="{{ getSection('tech_icon_1') }}" alt="{{ getSection('tech_title_1') }}" class="w-12">
                 <div class="ml-2">
                     <p class="font-medium">{{ getSection('tech_title_1') }}</p>
@@ -158,19 +158,19 @@
                 </div>
             </div>
             <div
-                class="absolute right-0 top-1/2 md:top-1/3 z-50 shadow rounded px-2 py-3 flex bg-white animate-bounceSlow">
-                <img src="{{ getSection('tech_icon_2') }}" alt="{{ getSection('tech_title_2') }}" class="w-12">
-                <div class="ml-2">
-                    <p class="font-medium">{{ getSection('tech_title_2') }}</p>
-                    <p>{{ getSection('tech_subtitle_2') }}</p>
-                </div>
-            </div>
-            <div
-                class="absolute bottom-4 md:bottom-12 md:left-1/4 z-50 shadow rounded px-2 py-3 flex w-auto bg-white animate-bounceSlow">
+                class="absolute right-0 top-2/3 md:top-1/3 z-50 shadow rounded px-2 py-3 flex bg-white animate-bounceSlow">
                 <img src="{{ getSection('tech_icon_3') }}" alt="{{ getSection('tech_title_3') }}" class="w-12">
                 <div class="ml-2">
                     <p class="font-medium">{{ getSection('tech_title_3') }}</p>
                     <p>{{ getSection('tech_subtitle_3') }}</p>
+                </div>
+            </div>
+            <div
+                class="absolute bottom-4 md:bottom-12 md:left-1/4 z-50 shadow rounded px-2 py-3 flex w-auto bg-white animate-bounceSlow">
+                <img src="{{ getSection('tech_icon_2') }}" alt="{{ getSection('tech_title_2') }}" class="w-12">
+                <div class="ml-2">
+                    <p class="font-medium">{{ getSection('tech_title_2') }}</p>
+                    <p>{{ getSection('tech_subtitle_2') }}</p>
                 </div>
             </div>
             <div>
