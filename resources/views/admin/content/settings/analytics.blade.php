@@ -6,17 +6,15 @@
 
                 <div class="col-12">
                     <label for="google_script">Google Script</label>
-                    <textarea id="google_script" name="settings[google_script]" class="form-control">{{ $setting['footer_text'] ?? '' }}</textarea>
+                    <textarea id="google_script" name="settings[google_script]" class="form-control">{{ $setting['google_script'] ?? '' }}</textarea>
                 </div>
 
 
             </div>
-            @can('settings-save')
-                <div class="pt-4">
-                    <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
-                    <button type="reset" class="btn btn-label-secondary">Reset</button>
-                </div>
-            @endcan
+            <div class="pt-4">
+                <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
+                <button type="reset" class="btn btn-label-secondary">Reset</button>
+            </div>
         </form>
     </div>
 </div>
