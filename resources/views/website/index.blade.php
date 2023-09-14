@@ -678,13 +678,13 @@
                         @foreach ($projects as $i => $project)
                             <div class="relative swiper-slide">
                                 <img src="{{ $project->image ?? '' }}" class="grayscale" alt="">
-                                <div class="absolute bottom-32 md:bottom-0 md:top-1/2 pl-4">
+                                {{-- <div class="absolute bottom-32 md:bottom-0 md:top-1/2 pl-4">
                                     <p class="text-8xl stroke-text">{{ sprintf('%02d', ++$i) }}</p>
-                                </div>
-                                <div class="pt-10 pb-6">
+                                </div> --}}
+                                <div class="pt-4 pb-6">
                                     <p class="text-lg font-medium">{{ $project->category->title ?? '' }}</p>
                                     <h2 class="text-3xl font-semibold mb-3">{{ $project->title ?? '' }}</h2>
-                                    <a href="{{ $project->link ?? '' }}" class="uppercase link link-anim">View
+                                    <a href="{{ $project->link ?? '' }}" rel="nofollow" class="uppercase link link-anim">View
                                         Project</a>
                                 </div>
                             </div>
