@@ -11,7 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffca40" />
 
+    <meta name="keywords"
+        content="Laravel Developer, FLutter Developer, Zeeshan Zafar, Web Developer, Vue.js Develoepr">
+    <meta name="author" content="{{ getSetting('user_name') }}">
+
     <link rel="canonical" href="https://zeeshandev.com" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ getSetting('favicon') }}" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ getSetting('meta_title') }}" />
@@ -35,6 +41,21 @@
         rel="stylesheet">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "{{ getSetting('user_name') }}",
+      "url": "https://zeeshandev.com",
+      "image": "{{ getSetting('profile_image') }}"
+    }
+    </script>
+
+
 
     @if (getSetting('google_script'))
         {!! getSetting('google_script') !!}
@@ -174,7 +195,7 @@
                 </div>
             </div>
             <div>
-                <img src="{{ getSetting('profile_image') }}" alt="" class="mx-auto">
+                <img src="{{ getSetting('profile_image') }}" alt="Zeeshan Zafar Profile Image" class="mx-auto">
             </div>
         </div>
     </div>
@@ -533,7 +554,8 @@
                                                     class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    To {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
+                                                    To
+                                                    {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -569,7 +591,8 @@
                                                     class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    To {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
+                                                    To
+                                                    {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -614,7 +637,8 @@
                                                     class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    To {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
+                                                    To
+                                                    {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -650,7 +674,8 @@
                                                     class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    To {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
+                                                    To
+                                                    {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
