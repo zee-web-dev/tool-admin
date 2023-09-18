@@ -11,7 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffca40" />
 
+    <meta name="keywords"
+        content="Laravel Developer, FLutter Developer, Zeeshan Zafar, Web Developer, Vue.js Develoepr">
+    <meta name="author" content="{{ getSetting('user_name') }}">
+
     <link rel="canonical" href="https://zeeshandev.com" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ getSetting('favicon') }}" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ getSetting('meta_title') }}" />
@@ -23,9 +29,6 @@
     <meta name="twitter:site" content="{{ getSetting('site_name') }}" />
     <meta property="twitter:title" content="{{ getSetting('meta_title') }}" />
     <meta property="twitter:description" content="{{ getSetting('meta_description') }}" />
-
-
-
 
     <link rel="stylesheet" href="{{ asset('website/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('website/css/app.css') }}">
@@ -39,20 +42,32 @@
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
+
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "{{ getSetting('user_name') }}",
+      "url": "https://zeeshandev.com",
+      "image": "{{ getSetting('profile_image') }}"
+    }
+    </script>
+
+
+
     @if (getSetting('google_script'))
         {!! getSetting('google_script') !!}
     @endif
 
-    @if (getSetting('calendly_script'))
-        {!! getSetting('calendly_script') !!}
-    @endif
 
 </head>
 
-<body class="font-jost font-">
+<body class="font-jost">
 
     <!-- Navbar -->
-    <nav class="bg-white w-full z-20 top-0 left-0">
+    <nav id="navbar" class="bg-white w-full z-[100] top-0 left-0">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
             <a href="#" class="flex items-center">
                 <p class="self-center text-2xl font-semibold whitespace-nowrap text-black">
@@ -80,19 +95,28 @@
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col font-medium md:flex-row md:space-x-12 md:mt-0">
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-theme md:p-0" aria-current="page">Home</a>
+                        <a href="#home" class="block py-2 pl-3 pr-4 text-theme md:p-0 nav-links"
+                            aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme">About</a>
+                        <a href="#about"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">About</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme">Services</a>
+                        <a href="#services"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">Services</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme">Projects</a>
+                        <a href="#resume"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">Resume</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme">Contact</a>
+                        <a href="#projects"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">Contact</a>
                     </li>
                     <li>
                         <button type="button" class="download-cv-btn  px-0 ml-3 md:hidden">Download CV</button>
@@ -104,14 +128,14 @@
     <!-- /Navbar -->
 
     <!-- Header Section -->
-    <div class="container grid grid-cols-1 md:grid-cols-2 md:gap-4  py-12">
+    <div id="home" class="container grid grid-cols-1 md:grid-cols-2 md:gap-4  py-8 md:py-12">
         <div class="pt-5 md:pt-16 order-last md:order-none">
             <p class="text-theme font-medium leading-3 text-3xl ml-1 mb-2">I'm</p>
             <h1 class="text-[4.5rem] md:text-[7.5rem] font-semibold leading-none table-caption">
                 {{ getSetting('user_name') }}</h1>
-            <p class="text-xl mt-2 mb-24 w-full h-8 sm:h-auto">A passionate
+            <p class="text-xl mt-2 mb-12 md:mb-24 w-full h-8 sm:h-auto">A passionate
                 <span class="txt-rotate font-medium text-theme" data-period="2000"
-                    data-rotate="{{ json_encode(explode(', ', getSection('prof_text'))) }}"></span>
+                    data-rotate='{{ json_encode(explode(', ', getSection('prof_text'))) }}'></span>.
             </p>
             <p class="text-lg uppercase">Find Me</p>
             <div class="mt-2">
@@ -156,7 +180,7 @@
         </div>
         <div class="relative py-8 md:p-0">
             <div
-                class="absolute top-0 md:left-6 md:top-16 z-50 shadow rounded px-2 py-3 flex bg-white animate-bounceSlow">
+                class="absolute top-4 md:left-6 md:top-16 z-50 shadow rounded px-2 py-3 flex bg-white animate-bounceSlow">
                 <img src="{{ getSection('tech_icon_1') }}" alt="{{ getSection('tech_title_1') }}" class="w-12">
                 <div class="ml-2">
                     <p class="font-medium">{{ getSection('tech_title_1') }}</p>
@@ -164,30 +188,30 @@
                 </div>
             </div>
             <div
-                class="absolute right-0 top-1/2 md:top-1/3 z-50 shadow rounded px-2 py-3 flex bg-white animate-bounceSlow">
-                <img src="{{ getSection('tech_icon_2') }}" alt="{{ getSection('tech_title_2') }}" class="w-12">
-                <div class="ml-2">
-                    <p class="font-medium">{{ getSection('tech_title_2') }}</p>
-                    <p>{{ getSection('tech_subtitle_2') }}</p>
-                </div>
-            </div>
-            <div
-                class="absolute bottom-4 md:bottom-12 md:left-1/4 z-50 shadow rounded px-2 py-3 flex w-auto bg-white animate-bounceSlow">
+                class="absolute right-0 top-2/3 md:top-1/3 z-50 shadow rounded px-2 py-3 flex bg-white animate-bounceSlow">
                 <img src="{{ getSection('tech_icon_3') }}" alt="{{ getSection('tech_title_3') }}" class="w-12">
                 <div class="ml-2">
                     <p class="font-medium">{{ getSection('tech_title_3') }}</p>
                     <p>{{ getSection('tech_subtitle_3') }}</p>
                 </div>
             </div>
+            <div
+                class="absolute bottom-4 md:bottom-12 md:left-1/4 z-50 shadow rounded px-2 py-3 flex w-auto bg-white animate-bounceSlow">
+                <img src="{{ getSection('tech_icon_2') }}" alt="{{ getSection('tech_title_2') }}" class="w-12">
+                <div class="ml-2">
+                    <p class="font-medium">{{ getSection('tech_title_2') }}</p>
+                    <p>{{ getSection('tech_subtitle_2') }}</p>
+                </div>
+            </div>
             <div>
-                <img src="{{ getSetting('profile_image') }}" alt="" class="mx-auto">
+                <img src="{{ getSetting('profile_image') }}" alt="Zeeshan Zafar Profile Image" class="mx-auto">
             </div>
         </div>
     </div>
     <!-- /Header Section -->
 
     <!-- About Section -->
-    <div class="py-16 bg-no-repeat bg-cover bg-fixed bg-center"
+    <div id="about" class="py-16 bg-no-repeat bg-cover bg-fixed bg-center"
         style="background-image: url({{ asset('website/images/about-background.jpg') }})">
         <div class="container grid grid-cols-1 md:grid-cols-2">
             <div class="text-white">
@@ -267,7 +291,7 @@
     <!-- /About Section -->
 
     <!-- Services Section -->
-    <div class="container grid grid-cols-1 md:grid-cols-2 gap-4 py-16">
+    <div id="services" class="container grid grid-cols-1 md:grid-cols-2 gap-4 py-16">
         <div>
             <div class="grid grid-cols-1 md:grid-rows-2 md:grid-cols-2 gap-6">
 
@@ -342,7 +366,7 @@
     <!-- /Services Section -->
 
     <!-- Resume -->
-    <section class="bg-neutral-50 ">
+    <section id="resume" class="bg-neutral-50 ">
         <div class="container py-16">
             <h2 class="text-5xl font-semibold mt-2 text-center">My <span class="text-theme">Resume</span></h2>
             <div class="mt-12 mb-4">
@@ -530,14 +554,17 @@
                                                             d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                                     </svg>
                                                 </span>
-                                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                                                <h3 class="flex items-center mb-0 text-lg font-semibold text-gray-900">
                                                     {{ $value['title'] ?? '' }}
                                                 </h3>
+                                                <a href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                    class="font-normal text-lg mb-2 text-theme">{{ $value['institute'] ?? '' }}</a>
                                                 <time
-                                                    class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    {{ $value['to'] ? 'To ' . date('M d, Y', strtotime($value['to'])) : '' }}
+                                                    To
+                                                    {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -567,11 +594,14 @@
                                                 <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
                                                     {{ $value['title'] ?? '' }}
                                                 </h3>
+                                                <a href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                    class="font-normal text-lg mb-2 text-theme">{{ $value['institute'] ?? '' }}</a>
                                                 <time
-                                                    class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    {{ $value['to'] ? 'To ' . date('M d, Y', strtotime($value['to'])) : '' }}
+                                                    To
+                                                    {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -607,14 +637,17 @@
                                                             d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                                     </svg>
                                                 </span>
-                                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                                                <h3 class="flex items-center mb-0 text-lg font-semibold text-gray-900">
                                                     {{ $value['title'] ?? '' }}
                                                 </h3>
+                                                <a href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                    class="font-normal mb-2 text-theme">{{ $value['company'] ?? '' }}</a>
                                                 <time
-                                                    class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    {{ $value['to'] ? 'To ' . date('M d, Y', strtotime($value['to'])) : '' }}
+                                                    To
+                                                    {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -641,14 +674,17 @@
                                                             d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                                     </svg>
                                                 </span>
-                                                <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900">
+                                                <h3 class="flex items-center mb-0 text-lg font-semibold text-gray-900">
                                                     {{ $value['title'] ?? '' }}
                                                 </h3>
+                                                <a href="{{ $value['link'] ?? '#' }}" rel="nofollow"
+                                                    class="font-normal mb-2 text-theme">{{ $value['company'] ?? '' }}</a>
                                                 <time
-                                                    class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                                                    class="block mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                                     From
                                                     {{ $value['from'] ? date('M d, Y', strtotime($value['from'])) : '' }}
-                                                    {{ $value['to'] ? 'To ' . date('M d, Y', strtotime($value['to'])) : '' }}
+                                                    To
+                                                    {{ $value['to'] ? date('M d, Y', strtotime($value['to'])) : 'Continue' }}
                                                 </time>
                                                 <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                                     {{ $value['description'] ?? '' }}
@@ -672,7 +708,7 @@
 
 
     <!-- Projects -->
-    <div class="py-16">
+    <div id="projects" class="py-16">
         <div class="container">
             <h2 class="text-5xl font-semibold mt-2 text-center">My Recent <span class="text-theme">Project</span></h2>
             <div class="mt-16 swiper mySwiper" style="padding-bottom: 40px;">
@@ -684,13 +720,14 @@
                         @foreach ($projects as $i => $project)
                             <div class="relative swiper-slide">
                                 <img src="{{ $project->image ?? '' }}" class="grayscale" alt="">
-                                <div class="absolute bottom-32 md:bottom-0 md:top-1/2 pl-4">
+                                {{-- <div class="absolute bottom-32 md:bottom-0 md:top-1/2 pl-4">
                                     <p class="text-8xl stroke-text">{{ sprintf('%02d', ++$i) }}</p>
-                                </div>
-                                <div class="pt-10 pb-6">
+                                </div> --}}
+                                <div class="pt-4 pb-6">
                                     <p class="text-lg font-medium">{{ $project->category->title ?? '' }}</p>
                                     <h2 class="text-3xl font-semibold mb-3">{{ $project->title ?? '' }}</h2>
-                                    <a href="{{ $project->link ?? '' }}" class="uppercase link link-anim">View
+                                    <a href="{{ $project->link ?? '' }}" rel="nofollow"
+                                        class="uppercase link link-anim">View
                                         Project</a>
                                 </div>
                             </div>
@@ -715,7 +752,7 @@
 
 
     <!-- Contact US -->
-    <section class="bg-neutral-50 md:py-16">
+    <section id="contact" class="bg-neutral-50 md:py-16">
         <div class="container grid grid-cols-1 md:grid-cols-3 md:shadow p-0 rounded">
             <div class="py-6">
                 <div class="mt-2 mb-6 text-center">
@@ -859,7 +896,7 @@
     <!-- /Footer -->
 
     <!-- scroll top button -->
-    <button class="shadow" onclick="topFunction()" id="scroll_top"><i class="fa-solid fa-arrow-up"></i></button>
+    {{-- <button class="shadow" onclick="topFunction()" id="scroll_top"><i class="fa-solid fa-arrow-up"></i></button> --}}
 
 
     <script src="{{ asset('website/js/flowbite.min.js') }}"></script>
@@ -898,7 +935,7 @@
         });
     </script>
 
-    <script>
+    {{-- <script>
         //Get the button:
         scrollTopBtn = document.getElementById("scroll_top");
 
@@ -924,7 +961,7 @@
             // document.body.scrollTop = 0; // For Safari
             // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
-    </script>
+    </script> --}}
 
     <script>
         @if (session('success'))
@@ -962,6 +999,10 @@
             })
         });
     </script>
+
+    @if (getSetting('calendly_script'))
+        {!! getSetting('calendly_script') !!}
+    @endif
 
 </body>
 
