@@ -67,7 +67,7 @@
 <body class="font-jost">
 
     <!-- Navbar -->
-    <nav class="bg-white w-full z-20 top-0 left-0">
+    <nav id="navbar" class="bg-white w-full z-[100] top-0 left-0">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
             <a href="#" class="flex items-center">
                 <p class="self-center text-2xl font-semibold whitespace-nowrap text-black">
@@ -95,19 +95,28 @@
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col font-medium md:flex-row md:space-x-12 md:mt-0">
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-theme md:p-0" aria-current="page">Home</a>
+                        <a href="#home" class="block py-2 pl-3 pr-4 text-theme md:p-0 nav-links"
+                            aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme">About</a>
+                        <a href="#about"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">About</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme">Services</a>
+                        <a href="#services"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">Services</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme">Projects</a>
+                        <a href="#resume"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">Resume</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme">Contact</a>
+                        <a href="#projects"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact"
+                            class="block py-2 pl-3 pr-4 text-black md:p-0 hover:text-theme nav-links">Contact</a>
                     </li>
                     <li>
                         <button type="button" class="download-cv-btn  px-0 ml-3 md:hidden">Download CV</button>
@@ -119,14 +128,14 @@
     <!-- /Navbar -->
 
     <!-- Header Section -->
-    <div class="container grid grid-cols-1 md:grid-cols-2 md:gap-4  py-8 md:py-12">
+    <div id="home" class="container grid grid-cols-1 md:grid-cols-2 md:gap-4  py-8 md:py-12">
         <div class="pt-5 md:pt-16 order-last md:order-none">
             <p class="text-theme font-medium leading-3 text-3xl ml-1 mb-2">I'm</p>
             <h1 class="text-[4.5rem] md:text-[7.5rem] font-semibold leading-none table-caption">
                 {{ getSetting('user_name') }}</h1>
             <p class="text-xl mt-2 mb-12 md:mb-24 w-full h-8 sm:h-auto">A passionate
                 <span class="txt-rotate font-medium text-theme" data-period="2000"
-                    data-rotate="{{ json_encode(explode(', ', getSection('prof_text'))) }}"></span>
+                    data-rotate='{{ json_encode(explode(', ', getSection('prof_text'))) }}'></span>.
             </p>
             <p class="text-lg uppercase">Find Me</p>
             <div class="mt-2">
@@ -202,7 +211,7 @@
     <!-- /Header Section -->
 
     <!-- About Section -->
-    <div class="py-16 bg-no-repeat bg-cover bg-fixed bg-center"
+    <div id="about" class="py-16 bg-no-repeat bg-cover bg-fixed bg-center"
         style="background-image: url({{ asset('website/images/about-background.jpg') }})">
         <div class="container grid grid-cols-1 md:grid-cols-2">
             <div class="text-white">
@@ -282,7 +291,7 @@
     <!-- /About Section -->
 
     <!-- Services Section -->
-    <div class="container grid grid-cols-1 md:grid-cols-2 gap-4 py-16">
+    <div id="services" class="container grid grid-cols-1 md:grid-cols-2 gap-4 py-16">
         <div>
             <div class="grid grid-cols-1 md:grid-rows-2 md:grid-cols-2 gap-6">
 
@@ -357,7 +366,7 @@
     <!-- /Services Section -->
 
     <!-- Resume -->
-    <section class="bg-neutral-50 ">
+    <section id="resume" class="bg-neutral-50 ">
         <div class="container py-16">
             <h2 class="text-5xl font-semibold mt-2 text-center">My <span class="text-theme">Resume</span></h2>
             <div class="mt-12 mb-4">
@@ -699,7 +708,7 @@
 
 
     <!-- Projects -->
-    <div class="py-16">
+    <div id="projects" class="py-16">
         <div class="container">
             <h2 class="text-5xl font-semibold mt-2 text-center">My Recent <span class="text-theme">Project</span></h2>
             <div class="mt-16 swiper mySwiper" style="padding-bottom: 40px;">
@@ -743,7 +752,7 @@
 
 
     <!-- Contact US -->
-    <section class="bg-neutral-50 md:py-16">
+    <section id="contact" class="bg-neutral-50 md:py-16">
         <div class="container grid grid-cols-1 md:grid-cols-3 md:shadow p-0 rounded">
             <div class="py-6">
                 <div class="mt-2 mb-6 text-center">
